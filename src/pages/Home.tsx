@@ -1,9 +1,83 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Video, Camera, Scissors, MonitorSmartphone, ArrowRight, CheckCircle } from 'lucide-react';
+import { Video, Camera, Scissors, MonitorSmartphone, ArrowRight, CheckCircle, Play } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 import Button from '../components/Button';
 import AnimatedSection from '../components/AnimatedSection';
 import ServiceCard from '../components/ServiceCard';
+
+const homeVideos = [
+    { src: '/video/Skoooda.mp4', title: 'Skoooda', category: 'Corporate', seekTime: 2 },
+    { src: '/video/WhatsApp Video 2026-02-27 at 15.11.30.mp4', title: 'Production Cinématique', category: 'Événementiel', seekTime: 3 },
+    { src: '/video/WhatsApp Video 2026-02-27 at 15.37.14.mp4', title: 'Reportage Visuel', category: 'Clip', seekTime: 2 },
+];
+
+function useVideoThumbnail(src: string, seekTime: number) {
+    const [thumbnail, setThumbnail] = useState<string | null>(null);
+    useEffect(() => {
+        const vid = document.createElement('video');
+        vid.crossOrigin = 'anonymous';
+        vid.preload = 'metadata';
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.src = src;
+        vid.addEventListener('seeked', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = vid.videoWidth;
+            canvas.height = vid.videoHeight;
+            const ctx = canvas.getContext('2d');
+            if (ctx) { ctx.drawImage(vid, 0, 0); setThumbnail(canvas.toDataURL('image/jpeg', 0.8)); }
+            vid.src = '';
+        }, { once: true });
+        vid.addEventListener('loadedmetadata', () => {
+            const t = Math.min(seekTime, vid.duration - 0.1);
+            vid.currentTime = t > 0 ? t : 0;
+        }, { once: true });
+        return () => { vid.src = ''; };
+    }, [src, seekTime]);
+    return thumbnail;
+}
+
+function HomeVideoCard({ video, index }: { video: typeof homeVideos[0]; index: number }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [playing, setPlaying] = useState(false);
+    const thumbnail = useVideoThumbnail(video.src, video.seekTime);
+    const handlePlay = () => { videoRef.current?.play(); setPlaying(true); };
+    return (
+        <AnimatedSection delay={index * 0.15}>
+            <div
+                className="group relative overflow-hidden bg-black border border-white/5 hover:border-[#C6A75E]/60 hover:shadow-[0_0_30px_rgba(198,167,94,0.12)] transition-all duration-300"
+                style={{ aspectRatio: '16/9' }}
+            >
+                <video
+                    ref={videoRef}
+                    src={video.src}
+                    poster={thumbnail ?? undefined}
+                    preload="none"
+                    controls={playing}
+                    onPause={() => setPlaying(false)}
+                    onEnded={() => setPlaying(false)}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                {!playing && (
+                    <div
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-black/50 group-hover:bg-black/30 transition-all duration-300"
+                        onClick={handlePlay}
+                    >
+                        <div className="w-14 h-14 rounded-full border-2 border-[#C6A75E] bg-black/50 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C6A75E]/20">
+                            <Play className="w-6 h-6 text-[#C6A75E] ml-0.5" />
+                        </div>
+                        <div className="absolute bottom-5 left-5 text-left z-10">
+                            <h3 className="text-white font-semibold text-base drop-shadow-lg">{video.title}</h3>
+                            <p className="text-[#C6A75E] text-xs mt-0.5 uppercase tracking-widest">{video.category}</p>
+                        </div>
+                    </div>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C6A75E]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
+            </div>
+        </AnimatedSection>
+    );
+}
 
 export default function Home() {
     const { t } = useTranslation();
@@ -12,21 +86,34 @@ export default function Home() {
         <div className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-black" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-black to-black opacity-60" />
+                {/* Background Image with optimized loading */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000"
+                    style={{
+                        backgroundImage: "url('/hero_background.png')",
+                        backgroundSize: 'cover'
+                    }}
+                />
+
+                {/* Dark Overlay (70% opacity) */}
+                <div className="absolute inset-0 bg-black/70" />
 
                 <div className="container relative z-10 mx-auto px-6 text-center">
                     <AnimatedSection delay={0.2}>
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8">
-                            Production Vidéo <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold">
-                                & Création Digitale
-                            </span>
-                        </h1>
+                        <div className="inline-block">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-4">
+                                Production Vidéo <br className="hidden md:block" />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold">
+                                    & Création Digitale
+                                </span>
+                            </h1>
+                            {/* Subtle Gold Accent Line */}
+                            <div className="w-32 h-1.5 bg-[#C6A75E] mx-auto mb-10 rounded-full" />
+                        </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.4}>
-                        <p className="text-xl md:text-2xl text-white/70 font-light max-w-2xl mx-auto mb-12">
+                        <p className="text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto mb-12 drop-shadow-lg">
                             À Casablanca.
                         </p>
                     </AnimatedSection>
@@ -46,6 +133,9 @@ export default function Home() {
                         </div>
                     </AnimatedSection>
                 </div>
+
+                {/* Subtle bottom fade to black */}
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
             </section>
 
             {/* Services Preview Section */}
@@ -108,19 +198,8 @@ export default function Home() {
                     </AnimatedSection>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[1, 2, 3].map((i) => (
-                            <AnimatedSection key={i} delay={i * 0.1}>
-                                <div className="group relative aspect-video bg-white/5 overflow-hidden cursor-pointer">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-20 transform group-hover:scale-105 transition-transform duration-700">
-                                        <Video className="w-16 h-16" />
-                                    </div>
-                                    <div className="absolute bottom-0 left-0 p-6 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                        <h4 className="text-white font-semibold text-lg">Projet {i}</h4>
-                                        <p className="text-brand-gold text-sm">Vidéographie</p>
-                                    </div>
-                                </div>
-                            </AnimatedSection>
+                        {homeVideos.map((video, i) => (
+                            <HomeVideoCard key={video.src} video={video} index={i} />
                         ))}
                     </div>
                     <div className="mt-12 text-center md:hidden">

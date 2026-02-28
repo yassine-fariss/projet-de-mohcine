@@ -7,31 +7,35 @@ export default function Services() {
             id: 'videography',
             title: 'Vidéographie',
             desc: "Nous produisons des vidéos d'une esthétique cinématographique pour répondre à tous vos besoins de communication : publicités, films d'entreprise, couverture d'événements et clips musicaux.",
-            icon: <Video className="w-16 h-16 text-brand-gold" />
+            icon: <Video className="w-8 h-8 text-brand-gold" />,
+            image: '/service_videographie.png',
         },
         {
             id: 'photography',
             title: 'Photographie',
             desc: "Notre équipe de photographes capture l'essence de votre marque. Des portraits professionnels aux shootings produits, chaque cliché est pensé pour raconter votre histoire.",
-            icon: <Camera className="w-16 h-16 text-brand-gold" />
+            icon: <Camera className="w-8 h-8 text-brand-gold" />,
+            image: '/service_photographie.png',
         },
         {
             id: 'montage',
             title: 'Montage & Reels',
             desc: "L'art du montage donne le rythme à vos images. Nous créons des vidéos dynamiques optimisées spécialement pour les réseaux sociaux (Reels, TikTok) garantissant l'engagement de votre audience.",
-            icon: <Scissors className="w-16 h-16 text-brand-gold" />
+            icon: <Scissors className="w-8 h-8 text-brand-gold" />,
+            image: '/service_montage.png',
         },
         {
             id: 'web-design',
             title: 'Web Design',
             desc: "Un site web doit être rapide, beau et convaincant. Nous concevons et développons des plateformes web modernes et réactives, entièrement optimisées pour vos objectifs commerciaux.",
-            icon: <MonitorSmartphone className="w-16 h-16 text-brand-gold" />
+            icon: <MonitorSmartphone className="w-8 h-8 text-brand-gold" />,
+            image: '/service_webdesign.png',
         }
     ];
 
     return (
         <div className="min-h-screen bg-[#050505] pt-12 pb-24">
-            <section className="container mx-auto px-6 mb-24">
+            <section className="container mx-auto px-6 mb-24 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Nos <span className="text-brand-gold">Services</span></h1>
@@ -46,12 +50,38 @@ export default function Services() {
                 {services.map((service, index) => (
                     <AnimatedSection key={service.id} delay={0.1}>
                         <div className={`flex flex-col md:flex-row items-center gap-12 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                            <div className="w-full md:w-1/2 flex justify-center">
-                                <div className="relative w-64 h-64 md:w-80 md:h-80 bg-black/50 border border-white/10 flex items-center justify-center transform hover:rotate-3 transition-transform duration-500">
-                                    <div className="absolute inset-0 border border-brand-gold/30 rotate-6" />
-                                    {service.icon}
+
+                            {/* Image side */}
+                            <div className="w-full md:w-1/2">
+                                <div className="relative group overflow-hidden">
+                                    {/* Outer gold border frame (decorative, offset) */}
+                                    <div className="absolute -inset-2 border border-brand-gold/20 z-0 pointer-events-none" />
+
+                                    {/* Image */}
+                                    <div className="relative overflow-hidden border border-white/10 group-hover:border-brand-gold/50 transition-colors duration-500">
+                                        <img
+                                            src={service.image}
+                                            alt={service.title}
+                                            className="w-full h-72 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                                            loading="lazy"
+                                        />
+                                        {/* Dark gradient overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+                                        {/* Icon badge bottom-left */}
+                                        <div className="absolute bottom-5 left-5 flex items-center gap-3 z-10">
+                                            <div className="w-10 h-10 rounded-full bg-black/70 border border-brand-gold/60 backdrop-blur-sm flex items-center justify-center">
+                                                {service.icon}
+                                            </div>
+                                        </div>
+
+                                        {/* Gold bottom line */}
+                                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    </div>
                                 </div>
                             </div>
+
+                            {/* Text side */}
                             <div className="w-full md:w-1/2 space-y-6">
                                 <div className="flex items-center space-x-4">
                                     <span className="text-brand-gold font-mono text-xl opacity-50">0{index + 1}</span>

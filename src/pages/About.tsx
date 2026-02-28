@@ -4,24 +4,24 @@ export default function About() {
     const team = [
         {
             name: 'Mohcine Rafik',
-            role: 'Vidéaste',
-            image: null // placeholder
+            role: 'Vidéographie',
+            image: '/teams/mohcine rafik.png',
         },
         {
             name: 'Abdessamad Ghazi',
             role: 'Photographe',
-            image: null
+            image: '/teams/abdelsamad ghazi.webp',
         },
         {
             name: 'Othmane Haddach',
             role: 'Monteur Vidéo',
-            image: null
+            image: null,
         },
         {
             name: 'Soukaina Laanaya',
             role: 'Social Media Marketer',
-            image: null
-        }
+            image: '/teams/soukaina .jpeg',
+        },
     ];
 
     return (
@@ -53,16 +53,27 @@ export default function About() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {team.map((member, index) => (
                         <AnimatedSection key={index} delay={0.1 * index}>
-                            <div className="group relative overflow-hidden bg-white/5 aspect-[3/4]">
-                                {/* Image Placeholder */}
-                                <div className="absolute inset-0 bg-neutral-900 filter grayscale group-hover:grayscale-0 transition-all duration-700">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
-                                </div>
+                            <div className="group relative overflow-hidden bg-neutral-900 aspect-[3/4]">
 
-                                {/* Border effect */}
+                                {/* Photo or gradient placeholder */}
+                                {member.image ? (
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-950" />
+                                )}
+
+                                {/* Dark gradient overlay bottom */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+
+                                {/* Gold border on hover */}
                                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/50 transition-colors duration-500 z-20" />
 
-                                <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                {/* Name & role */}
+                                <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                     <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
                                     <p className="text-brand-gold font-medium uppercase tracking-wider text-sm">{member.role}</p>
                                 </div>
