@@ -51,13 +51,6 @@ const commercialPhotos = [
     '/Photo/commercial photos/GH801109-Panorama.JPG.jpeg',
     '/Photo/commercial photos/GH801123.JPG.jpeg',
     '/Photo/commercial photos/ghaziphotoghraphie06.jpg.jpeg',
-    '/new photos/DSC06314-Modifier.jpg',
-    '/new photos/DSC06395-Modifier.jpg',
-    '/new photos/DSC06552-Modifier.jpg',
-    '/new photos/DSC06626-Modifier.jpg',
-    '/new photos/DSC06725-Modifier.jpg',
-    '/new photos/DSC_1280-Edit.jpg',
-    '/new photos/ghaziphotoghraphiesalé.jpg',
 ];
 
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
