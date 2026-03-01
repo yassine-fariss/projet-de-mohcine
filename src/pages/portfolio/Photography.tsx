@@ -53,6 +53,16 @@ const commercialPhotos = [
     '/Photo/commercial photos/ghaziphotoghraphie06.jpg.jpeg',
 ];
 
+const portraitPhotos = [
+    '/Photo/portrait photos/DSC06314-Modifier.jpg',
+    '/Photo/portrait photos/DSC06395-Modifier.jpg',
+    '/Photo/portrait photos/DSC06552-Modifier.jpg',
+    '/Photo/portrait photos/DSC06626-Modifier.jpg',
+    '/Photo/portrait photos/DSC06725-Modifier.jpg',
+    '/Photo/portrait photos/DSC_1280-Edit.jpg',
+    '/Photo/portrait photos/ghaziphotoghraphiesalé.jpg',
+];
+
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -93,9 +103,16 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 
 export default function Photography() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | null>(null);
+    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | null>(null);
 
-    const currentPhotos = activeTab === 'wedding' ? weddingPhotos : (activeTab === 'commercial' ? commercialPhotos : []);
+    const getPhotos = () => {
+        if (activeTab === 'wedding') return weddingPhotos;
+        if (activeTab === 'commercial') return commercialPhotos;
+        if (activeTab === 'portrait') return portraitPhotos;
+        return [];
+    };
+
+    const currentPhotos = getPhotos();
 
     const openLightbox = (index: number) => setSelectedIndex(index);
     const closeLightbox = () => setSelectedIndex(null);
@@ -110,17 +127,24 @@ export default function Photography() {
         setSelectedIndex((prev) => (prev !== null ? (prev + 1) % currentPhotos.length : null));
     };
 
+    const getTitle = () => {
+        if (activeTab === 'wedding') return 'Wedding Collection';
+        if (activeTab === 'commercial') return 'Commercial Collection';
+        if (activeTab === 'portrait') return 'Portrait Collection';
+        return 'Photographie';
+    };
+
     return (
         <div className="min-h-screen bg-black pt-12 pb-24">
             {/* Header */}
             <section className="container mx-auto px-6 mb-12 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            {activeTab ? (activeTab === 'wedding' ? 'Wedding Collection' : 'Commercial Collection') : 'Photographie'}
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 uppercase tracking-tight">
+                            {getTitle()}
                         </h1>
                         <div className="w-24 h-1 bg-brand-gold mb-6 mx-auto md:mx-0" />
-                        <p className="text-xl text-white/60 leading-relaxed">
+                        <p className="text-xl text-white/60 leading-relaxed font-light">
                             {activeTab
                                 ? "Immortalisons vos moments. Découvrez l'intégralité de cette collection exclusive."
                                 : "Immortalisons vos moments. Choisissez une collection pour découvrir nos réalisations."
@@ -147,42 +171,64 @@ export default function Photography() {
 
             {/* Collection Selection Cards (Only when no collection is active) */}
             {!activeTab && (
-                <section className="container mx-auto px-6 mb-16">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <section className="container mx-auto px-6 mb-16 font-Inter">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Wedding Collection Card */}
                         <AnimatedSection delay={0.1}>
                             <div
                                 onClick={() => { setActiveTab('wedding'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[21/9] cursor-pointer overflow-hidden border-2 border-white/10 hover:border-brand-gold transition-all duration-500 rounded-xl shadow-2xl"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5"
                             >
                                 <img
                                     src={weddingPhotos[0]}
                                     alt="Wedding Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">Wedding Collection</h2>
-                                    <div className="w-12 h-1 bg-brand-gold transition-all duration-500 group-hover:w-24 opacity-0 group-hover:opacity-100" />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Wedding</h2>
+                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
+                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Portrait Collection Card */}
+                        <AnimatedSection delay={0.2}>
+                            <div
+                                onClick={() => { setActiveTab('portrait'); setSelectedIndex(null); }}
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5"
+                            >
+                                <img
+                                    src={portraitPhotos[0]}
+                                    alt="Portrait Collection Preview"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Portrait</h2>
+                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
+                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
                                 </div>
                             </div>
                         </AnimatedSection>
 
                         {/* Commercial Collection Card */}
-                        <AnimatedSection delay={0.2}>
+                        <AnimatedSection delay={0.3}>
                             <div
                                 onClick={() => { setActiveTab('commercial'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[21/9] cursor-pointer overflow-hidden border-2 border-white/10 hover:border-brand-gold transition-all duration-500 rounded-xl shadow-2xl"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 md:col-span-2 lg:col-span-1"
                             >
                                 <img
                                     src={commercialPhotos[0]}
                                     alt="Commercial Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">Commercial Collection</h2>
-                                    <div className="w-12 h-1 bg-brand-gold transition-all duration-500 group-hover:w-24 opacity-0 group-hover:opacity-100" />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Commercial</h2>
+                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
+                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
                                 </div>
                             </div>
                         </AnimatedSection>
