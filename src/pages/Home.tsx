@@ -12,6 +12,29 @@ const homeVideos = [
     { src: '/video/WhatsApp Video 2026-02-27 at 15.37.14.mp4', title: 'Reportage Visuel', category: 'Clip', seekTime: 2 },
 ];
 
+const team = [
+    {
+        name: 'Mohcine Rafik',
+        role: 'Vidéographie',
+        image: '/teams/mohcine rafik.png',
+    },
+    {
+        name: 'Abdessamad Ghazi',
+        role: 'Photographe',
+        image: '/teams/abdelsamad ghazi.webp',
+    },
+    {
+        name: 'Othmane Haddach',
+        role: 'Monteur Vidéo',
+        image: null,
+    },
+    {
+        name: 'Soukaina Laanaya',
+        role: 'Social Media Marketer',
+        image: '/teams/soukaina .jpeg',
+    },
+];
+
 function useVideoThumbnail(src: string, seekTime: number) {
     const [thumbnail, setThumbnail] = useState<string | null>(null);
     useEffect(() => {
@@ -207,6 +230,49 @@ export default function Home() {
                         <Link to="/portfolio/videography" className="inline-flex text-brand-gold hover:text-white transition-colors items-center space-x-2">
                             <span>Tout voir</span>
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Section */}
+            <section className="py-24 bg-black">
+                <div className="container mx-auto px-6">
+                    <AnimatedSection>
+                        <div className="mb-16 text-center md:text-left">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Notre Équipe</h2>
+                            <div className="w-24 h-1 bg-brand-gold mx-auto md:mx-0" />
+                        </div>
+                    </AnimatedSection>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {team.map((member, index) => (
+                            <AnimatedSection key={index} delay={0.1 * index}>
+                                <div className="group relative overflow-hidden bg-neutral-900 aspect-[3/4]">
+                                    {/* Photo or gradient placeholder */}
+                                    {member.image ? (
+                                        <img
+                                            src={member.image}
+                                            alt={member.name}
+                                            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-950" />
+                                    )}
+
+                                    {/* Dark gradient overlay bottom */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+
+                                    {/* Gold border on hover */}
+                                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/50 transition-colors duration-500 z-20" />
+
+                                    {/* Name & role */}
+                                    <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                        <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
+                                        <p className="text-brand-gold font-medium uppercase tracking-wider text-sm">{member.role}</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+                        ))}
                     </div>
                 </div>
             </section>
