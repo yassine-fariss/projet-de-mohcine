@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../components/AnimatedSection';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 
 export default function Contact() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // In a real app, this would submit the form data to a backend endpoint
         console.log('Form submitted:', formData);
-        alert('Merci ! Votre message a bien été envoyé.');
+        alert(t('contact.form.success'));
         setFormData({ name: '', email: '', message: '' });
     };
 
@@ -23,10 +25,10 @@ export default function Contact() {
             <section className="container mx-auto px-6 mb-16 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Contact</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{t('contact.title')}</h1>
                         <div className="w-24 h-1 bg-brand-gold mb-6" />
                         <p className="text-xl text-white/60 leading-relaxed">
-                            Prêt à discuter de votre prochain projet ? Laissez-nous un message.
+                            {t('contact.desc')}
                         </p>
                     </div>
                 </AnimatedSection>
@@ -40,13 +42,13 @@ export default function Contact() {
                     <div className="w-full lg:w-1/3 space-y-12">
                         <AnimatedSection delay={0.1}>
                             <div className="bg-[#050505] p-8 border border-white/10 hover:border-brand-gold/50 transition-colors h-full">
-                                <h3 className="text-2xl font-bold text-white mb-8">Informations</h3>
+                                <h3 className="text-2xl font-bold text-white mb-8">{t('contact.info_title')}</h3>
 
                                 <div className="space-y-8">
                                     <div className="flex items-start tracking-wide">
                                         <Phone className="w-6 h-6 text-brand-gold mr-4 mt-1" />
                                         <div>
-                                            <h4 className="text-white/40 text-sm uppercase mb-1">Téléphone</h4>
+                                            <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.phone')}</h4>
                                             <p className="text-white text-lg">0625254219</p>
                                         </div>
                                     </div>
@@ -54,7 +56,7 @@ export default function Contact() {
                                     <div className="flex items-start tracking-wide">
                                         <Mail className="w-6 h-6 text-brand-gold mr-4 mt-1" />
                                         <div className="break-all">
-                                            <h4 className="text-white/40 text-sm uppercase mb-1">Email</h4>
+                                            <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.email')}</h4>
                                             <p className="text-white text-lg">Revoproductionsteam@gmail.com</p>
                                         </div>
                                     </div>
@@ -62,8 +64,8 @@ export default function Contact() {
                                     <div className="flex items-start tracking-wide">
                                         <MapPin className="w-6 h-6 text-brand-gold mr-4 mt-1" />
                                         <div>
-                                            <h4 className="text-white/40 text-sm uppercase mb-1">Localisation</h4>
-                                            <p className="text-white text-lg">Casablanca, <br />Maroc</p>
+                                            <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.location')}</h4>
+                                            <p className="text-white text-lg">{t('why_us.support.location_val', 'Casablanca, Maroc')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +78,7 @@ export default function Contact() {
                                         className="group flex items-center justify-center w-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/30 px-6 py-4 transition-all duration-300 space-x-3"
                                     >
                                         <MessageCircle className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
-                                        <span className="font-semibold uppercase tracking-wider text-sm">WhatsApp Direct</span>
+                                        <span className="font-semibold uppercase tracking-wider text-sm">{t('contact.whatsapp')}</span>
                                     </a>
                                 </div>
                             </div>
@@ -87,11 +89,11 @@ export default function Contact() {
                     <div className="w-full lg:w-2/3">
                         <AnimatedSection delay={0.2} className="h-full">
                             <form onSubmit={handleSubmit} className="bg-white/5 p-8 lg:p-12 border border-white/10 flex flex-col h-full">
-                                <h3 className="text-2xl font-bold text-white mb-8">Envoyer un message</h3>
+                                <h3 className="text-2xl font-bold text-white mb-8">{t('contact.form_title')}</h3>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                                     <div className="flex flex-col">
-                                        <label htmlFor="name" className="text-white/40 text-sm uppercase tracking-wider mb-2">Nom complet</label>
+                                        <label htmlFor="name" className="text-white/40 text-sm uppercase tracking-wider mb-2">{t('contact.form.name')}</label>
                                         <input
                                             type="text"
                                             id="name"
@@ -99,11 +101,11 @@ export default function Contact() {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors"
-                                            placeholder="Votre nom"
+                                            placeholder={t('contact.form.name_placeholder')}
                                         />
                                     </div>
                                     <div className="flex flex-col">
-                                        <label htmlFor="email" className="text-white/40 text-sm uppercase tracking-wider mb-2">Email</label>
+                                        <label htmlFor="email" className="text-white/40 text-sm uppercase tracking-wider mb-2">{t('contact.form.email')}</label>
                                         <input
                                             type="email"
                                             id="email"
@@ -111,13 +113,13 @@ export default function Contact() {
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors"
-                                            placeholder="votre@email.com"
+                                            placeholder={t('contact.form.email_placeholder')}
                                         />
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col mb-12 flex-grow">
-                                    <label htmlFor="message" className="text-white/40 text-sm uppercase tracking-wider mb-2">Message</label>
+                                    <label htmlFor="message" className="text-white/40 text-sm uppercase tracking-wider mb-2">{t('contact.form.message')}</label>
                                     <textarea
                                         id="message"
                                         required
@@ -125,13 +127,13 @@ export default function Contact() {
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         rows={6}
                                         className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors resize-none flex-grow"
-                                        placeholder="Comment pouvons-nous vous aider ?"
+                                        placeholder={t('contact.form.message_placeholder')}
                                     />
                                 </div>
 
                                 <div>
                                     <Button type="submit" variant="primary" icon={<Send className="w-4 h-4" />}>
-                                        Envoyer
+                                        {t('contact.form.submit')}
                                     </Button>
                                 </div>
                             </form>

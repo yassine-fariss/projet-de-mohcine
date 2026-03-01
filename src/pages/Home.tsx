@@ -1,37 +1,41 @@
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Video, Camera, Scissors, MonitorSmartphone, ArrowRight, CheckCircle, Play } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from '../components/Button';
 import AnimatedSection from '../components/AnimatedSection';
 import ServiceCard from '../components/ServiceCard';
 
-const homeVideos = [
-    { src: '/video/Skoooda.mp4', title: 'Skoooda', category: 'Corporate', seekTime: 2 },
-    { src: '/video/WhatsApp Video 2026-02-27 at 15.11.30.mp4', title: 'Production Cinématique', category: 'Événementiel', seekTime: 3 },
-    { src: '/video/WhatsApp Video 2026-02-27 at 15.37.14.mp4', title: 'Reportage Visuel', category: 'Clip', seekTime: 2 },
+const homeVideos = (t: any) => [
+    { src: '/video/Skoooda.mp4', title: 'Skoooda', category: t('category.corporate'), seekTime: 2 },
+    { src: '/video/WhatsApp Video 2026-02-27 at 15.11.30.mp4', title: 'Production Cinématique', category: t('category.event'), seekTime: 3 },
+    { src: '/video/WhatsApp Video 2026-02-27 at 15.37.14.mp4', title: 'Reportage Visuel', category: t('category.clip'), seekTime: 2 },
 ];
 
-const team = [
+const teamData = (t: any) => [
     {
         name: 'Mohcine Rafik',
-        role: 'Vidéographie',
+        role: t('role.videography'),
         image: '/teams/mohcine rafik.png',
+        instagram: 'https://www.instagram.com/mohcine_rafi/',
     },
     {
         name: 'Abdessamad Ghazi',
-        role: 'Photographe',
+        role: t('role.photography'),
         image: '/teams/abdelsamad ghazi.webp',
+        instagram: 'https://www.instagram.com/ghaziabdessamad?igsh=eTJxMjZ0NHd1cGUy',
     },
     {
         name: 'Othmane Haddach',
-        role: 'Monteur Vidéo',
+        role: t('role.editing'),
         image: null,
+        instagram: 'https://www.instagram.com/oth_2.1?igsh=bGhsaXg3OGxoamZu',
     },
     {
         name: 'Soukaina Laanaya',
-        role: 'Social Media Marketer',
+        role: t('role.marketing'),
         image: '/teams/soukaina .jpeg',
+        instagram: 'https://www.instagram.com/ilus_marokea?igsh=ODdxdHljbDZvaDBp',
     },
 ];
 
@@ -61,7 +65,7 @@ function useVideoThumbnail(src: string, seekTime: number) {
     return thumbnail;
 }
 
-function HomeVideoCard({ video, index }: { video: typeof homeVideos[0]; index: number }) {
+function HomeVideoCard({ video, index }: { video: any; index: number }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [playing, setPlaying] = useState(false);
     const thumbnail = useVideoThumbnail(video.src, video.seekTime);
@@ -104,62 +108,62 @@ function HomeVideoCard({ video, index }: { video: typeof homeVideos[0]; index: n
 
 export default function Home() {
     const { t } = useTranslation();
+    const videos = homeVideos(t);
+    const team = teamData(t);
 
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                {/* Background Image with optimized loading */}
+                {/* Background Image with optimized loading and subtle zoom */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] ease-out scale-110 animate-slow-zoom"
                     style={{
                         backgroundImage: "url('/hero_background.png')",
-                        backgroundSize: 'cover'
                     }}
                 />
 
-                {/* Dark Overlay (70% opacity) */}
-                <div className="absolute inset-0 bg-black/70" />
+                {/* Dark Overlay (80% opacity for cinematic depth) */}
+                <div className="absolute inset-0 bg-black/80 z-0" />
 
                 <div className="container relative z-10 mx-auto px-6 text-center">
                     <AnimatedSection delay={0.2}>
-                        <div className="inline-block">
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-4">
-                                Production Vidéo <br className="hidden md:block" />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-gold">
-                                    & Création Digitale
+                        <div className="inline-block w-full">
+                            <h1 className="text-3xl md:text-6xl lg:text-8xl font-black text-white tracking-widest leading-tight md:leading-none mb-6 uppercase break-words px-4">
+                                {t('hero.title1')} <br className="hidden sm:block" />
+                                <span className="text-brand-gold luxury-text-glow italic font-serif block sm:inline mt-2 sm:mt-0">
+                                    {t('hero.title2')}
                                 </span>
                             </h1>
-                            {/* Subtle Gold Accent Line */}
-                            <div className="w-32 h-1.5 bg-[#C6A75E] mx-auto mb-10 rounded-full" />
+                            {/* Elegant Gold Accent Line */}
+                            <div className="w-16 md:w-48 h-[1px] bg-brand-gold/60 mx-auto mb-10 shadow-[0_0_15px_rgba(198,167,94,0.5)]" />
                         </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.4}>
-                        <p className="text-xl md:text-2xl text-white/90 font-light max-w-3xl mx-auto mb-12 drop-shadow-lg leading-relaxed">
-                            Votre agence de production audiovisuelle et création digitale à Casablanca. <br className="hidden md:block" />
-                            Nous transformons vos idées en expériences visuelles percutantes et innovantes.
+                        <p className="text-sm md:text-xl text-white/50 font-light max-w-2xl mx-auto mb-12 tracking-premium leading-relaxed uppercase px-4">
+                            {t('hero.subtitle')}
                         </p>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.6}>
-                        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                             <Link to="/portfolio/videography">
-                                <Button variant="primary">
-                                    {t('hero.btn.portfolio')}
+                                <Button variant="primary" className="px-10 py-6 tracking-widest uppercase text-xs">
+                                    {t('hero.btn_portfolio')}
                                 </Button>
                             </Link>
                             <Link to="/contact">
-                                <Button variant="outline">
-                                    {t('hero.btn.contact')}
+                                <Button variant="outline" className="px-10 py-6 tracking-widest uppercase text-xs border-white/20 hover:border-brand-gold">
+                                    {t('hero.btn_contact')}
                                 </Button>
                             </Link>
                         </div>
                     </AnimatedSection>
                 </div>
 
-                {/* Subtle bottom fade to black */}
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+                {/* Subtle bottom fade to background */}
+                <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-background to-transparent z-10" />
             </section>
 
             {/* Services Preview Section */}
@@ -167,38 +171,42 @@ export default function Home() {
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Nos Expertises</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h2>
                             <div className="w-24 h-1 bg-brand-gold mx-auto" />
                         </div>
                     </AnimatedSection>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <ServiceCard
-                            title="Vidéographie"
-                            description="Des productions cinématographiques pour vos événements, publicités et communication d'entreprise."
+                            title={t('services.videography.title')}
+                            description={t('services.videography.desc')}
                             icon={<Video className="w-10 h-10" />}
                             linkTo="/portfolio/videography"
+                            image="/service_videographie.png"
                             delay={0.1}
                         />
                         <ServiceCard
-                            title="Photographie"
-                            description="Capturer l'essence de votre marque à travers des portraits, produits et reportages photo de haute qualité."
+                            title={t('services.photography.title')}
+                            description={t('services.photography.desc')}
                             icon={<Camera className="w-10 h-10" />}
                             linkTo="/portfolio/photography"
+                            image="/service_photographie.png"
                             delay={0.2}
                         />
                         <ServiceCard
-                            title="Montage & Reels"
-                            description="Montage dynamique et adapté aux formats courts pour les réseaux sociaux."
+                            title={t('services.montage.title')}
+                            description={t('services.montage.desc')}
                             icon={<Scissors className="w-10 h-10" />}
                             linkTo="/portfolio/montage-reels"
+                            image="/service_montage.png"
                             delay={0.3}
                         />
                         <ServiceCard
-                            title="Web Design"
-                            description="Création de sites vitrines professionnels, élégants et performants."
+                            title={t('services.webdesign.title')}
+                            description={t('services.webdesign.desc')}
                             icon={<MonitorSmartphone className="w-10 h-10" />}
                             linkTo="/portfolio/web-design"
+                            image="/service_webdesign.png"
                             delay={0.4}
                         />
                     </div>
@@ -211,24 +219,24 @@ export default function Home() {
                     <AnimatedSection>
                         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                             <div>
-                                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Dernières Réalisations</h2>
+                                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('portfolio.latest')}</h2>
                                 <div className="w-24 h-1 bg-brand-gold" />
                             </div>
                             <Link to="/portfolio/videography" className="hidden md:inline-flex text-brand-gold hover:text-white transition-colors items-center space-x-2">
-                                <span>Tout voir</span>
+                                <span>{t('portfolio.view_all')}</span>
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
                     </AnimatedSection>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {homeVideos.map((video, i) => (
+                        {videos.map((video, i) => (
                             <HomeVideoCard key={video.src} video={video} index={i} />
                         ))}
                     </div>
                     <div className="mt-12 text-center md:hidden">
                         <Link to="/portfolio/videography" className="inline-flex text-brand-gold hover:text-white transition-colors items-center space-x-2">
-                            <span>Tout voir</span>
+                            <span>{t('portfolio.view_all')}</span>
                         </Link>
                     </div>
                 </div>
@@ -239,7 +247,7 @@ export default function Home() {
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                         <div className="mb-16 text-center md:text-left">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Notre Équipe</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('team.title')}</h2>
                             <div className="w-24 h-1 bg-brand-gold mx-auto md:mx-0" />
                         </div>
                     </AnimatedSection>
@@ -247,7 +255,12 @@ export default function Home() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {team.map((member, index) => (
                             <AnimatedSection key={index} delay={0.1 * index}>
-                                <div className="group relative overflow-hidden bg-neutral-900 aspect-[3/4]">
+                                <a
+                                    href={member.instagram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group relative block overflow-hidden bg-neutral-900 aspect-[3/4] cursor-pointer"
+                                >
                                     {/* Photo or gradient placeholder */}
                                     {member.image ? (
                                         <img
@@ -270,7 +283,7 @@ export default function Home() {
                                         <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
                                         <p className="text-brand-gold font-medium uppercase tracking-wider text-sm">{member.role}</p>
                                     </div>
-                                </div>
+                                </a>
                             </AnimatedSection>
                         ))}
                     </div>
@@ -282,16 +295,16 @@ export default function Home() {
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Pourquoi Nous Choisir</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('why_us.title')}</h2>
                             <div className="w-24 h-1 bg-brand-gold mx-auto" />
                         </div>
                     </AnimatedSection>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                         {[
-                            { title: "Qualité Cinématographique", desc: "Notre équipement nous permet de délivrer un rendu haut de gamme." },
-                            { title: "Équipe Experte", desc: "Des professionnels passionnés par l'image et l'innovation digitale." },
-                            { title: "Accompagnement Sur Mesure", desc: "Nous adaptons nos services à vos besoins spécifiques." }
+                            { title: t('why_us.quality.title'), desc: t('why_us.quality.desc') },
+                            { title: t('why_us.team.title'), desc: t('why_us.team.desc') },
+                            { title: t('why_us.support.title'), desc: t('why_us.support.desc') }
                         ].map((feature, i) => (
                             <AnimatedSection key={i} delay={0.1 * i} className="flex flex-col items-center">
                                 <div className="w-16 h-16 rounded-full border border-brand-gold flex items-center justify-center mb-6">
@@ -308,3 +321,4 @@ export default function Home() {
         </div>
     );
 }
+

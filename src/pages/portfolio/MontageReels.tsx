@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Play } from 'lucide-react';
 
@@ -79,9 +80,9 @@ function ReelCard({ reel, index }: { reel: typeof reels[0]; index: number }) {
     const handlePause = () => setPlaying(false);
 
     return (
-        <AnimatedSection delay={index * 0.15}>
+        <AnimatedSection delay={index * 0.1}>
             <div
-                className="group relative overflow-hidden bg-black border border-white/5 transition-all duration-300 hover:border-[#C6A75E]/60 hover:shadow-[0_0_30px_rgba(198,167,94,0.12)]"
+                className="group relative overflow-hidden bg-background border border-border-subtle transition-all duration-1000 hover:border-brand-gold/40 rounded-2xl luxury-shadow-sm"
                 style={{ aspectRatio: '9 / 16' }}
             >
                 {/* Native HTML5 Video */}
@@ -93,44 +94,52 @@ function ReelCard({ reel, index }: { reel: typeof reels[0]; index: number }) {
                     controls={playing}
                     onPause={handlePause}
                     onEnded={handlePause}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
 
                 {/* Play overlay */}
                 {!playing && (
                     <div
-                        className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-black/50 transition-all duration-300 group-hover:bg-black/30"
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-black/60 transition-all duration-500 group-hover:bg-black/40"
                         onClick={handlePlay}
                     >
                         {!thumbnail && (
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/60" />
                         )}
 
-                        <div className="relative z-10 w-14 h-14 rounded-full border-2 border-[#C6A75E] bg-black/50 backdrop-blur-sm flex items-center justify-center mb-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C6A75E]/20">
-                            <Play className="w-6 h-6 text-[#C6A75E] ml-1" />
+                        {/* Luxury play button */}
+                        <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-full border border-brand-gold bg-black/30 backdrop-blur-md flex items-center justify-center mb-4 transform transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-gold/10 group-hover:shadow-[0_0_20px_rgba(198,167,94,0.3)]">
+                            <Play className="w-5 h-5 md:w-6 md:h-6 text-brand-gold ml-0.5 fill-brand-gold/20" />
                         </div>
 
-                        {/* Title & category removed for cleaner look */}
+                        {/* Discreet Title Overlay */}
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-full px-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <p className="text-white/80 text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-medium mb-1">Cinématographique</p>
+                            <h3 className="text-white font-bold text-xs md:text-sm tracking-widest uppercase">{reel.title}</h3>
+                        </div>
                     </div>
                 )}
 
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C6A75E]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
+                {/* Accent line */}
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20" />
             </div>
         </AnimatedSection>
     );
 }
 
 export default function MontageReels() {
+    const { t } = useTranslation();
+
     return (
-        <div className="min-h-screen bg-black pt-12 pb-24">
+        <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             {/* Header */}
-            <section className="container mx-auto px-6 mb-16 pt-12 md:pt-24">
+            <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>
-                    <div className="max-w-3xl">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Montage & Reels</h1>
-                        <div className="w-24 h-1 bg-[#C6A75E] mb-6" />
-                        <p className="text-xl text-white/60 leading-relaxed">
-                            Formats courts, dynamiques et optimisés. L'impact maximal pour vos réseaux sociaux.
+                    <div className="max-w-3xl mx-auto md:mx-0">
+                        <h1 className="text-3xl md:text-7xl font-bold text-foreground mb-6 uppercase tracking-cinematic">{t('montage.page_title')}</h1>
+                        <div className="w-16 md:w-24 h-[1px] bg-brand-gold mb-8 md:mb-10 mx-auto md:mx-0" />
+                        <p className="text-lg md:text-xl text-muted leading-relaxed font-light tracking-premium px-4 md:px-0">
+                            {t('montage.desc')}
                         </p>
                     </div>
                 </AnimatedSection>
@@ -138,7 +147,7 @@ export default function MontageReels() {
 
             {/* Reels Grid */}
             <section className="container mx-auto px-6">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
                     {reels.map((reel, index) => (
                         <ReelCard key={reel.src} reel={reel} index={index} />
                     ))}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -57,8 +58,6 @@ const portraitPhotos = [
     '/Photo/portrait photos/DSC06314-Modifier.jpg',
     '/Photo/portrait photos/DSC06395-Modifier.jpg',
     '/Photo/portrait photos/DSC06552-Modifier.jpg',
-    '/Photo/portrait photos/DSC06626-Modifier.jpg',
-    '/Photo/portrait photos/DSC06725-Modifier.jpg',
     '/Photo/portrait photos/DSC_1280-Edit.jpg',
     '/Photo/portrait photos/ghaziphotoghraphiesalé.jpg',
 ];
@@ -69,14 +68,14 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
     return (
         <AnimatedSection delay={index * 0.05}>
             <div
-                className={`group relative cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/50 transition-colors break-inside-avoid bg-background mb-4 ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
+                className={`group relative cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-700 break-inside-avoid bg-background mb-4 rounded-xl luxury-shadow-sm ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
                     }`}
                 onClick={onClick}
             >
                 {/* Loader Spinner (Subtle) */}
                 {!isLoaded && (
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-8 h-8 border-2 border-brand-gold/20 border-t-brand-gold rounded-full animate-spin" />
+                        <div className="w-8 h-8 border border-brand-gold/20 border-t-brand-gold rounded-full animate-spin" />
                     </div>
                 )}
 
@@ -89,10 +88,10 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
                     loading="lazy"
                 />
 
-                {/* Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 duration-300 ${isLoaded ? '' : 'hidden'}`} />
-                <div className={`absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isLoaded ? '' : 'hidden'}`}>
-                    <div className="w-14 h-14 rounded-full border border-brand-gold text-brand-gold flex items-center justify-center bg-black/50 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                {/* Cinematic Overlay */}
+                <div className={`absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity z-10 duration-500 ${isLoaded ? '' : 'hidden'}`} />
+                <div className={`absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isLoaded ? '' : 'hidden'}`}>
+                    <div className="w-16 h-16 rounded-full border border-brand-gold/50 text-brand-gold flex items-center justify-center bg-black/30 backdrop-blur-md transform scale-90 group-hover:scale-100 transition-all duration-500">
                         <Maximize2 className="w-6 h-6" />
                     </div>
                 </div>
@@ -102,6 +101,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 }
 
 export default function Photography() {
+    const { t } = useTranslation();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | null>(null);
 
@@ -128,27 +128,24 @@ export default function Photography() {
     };
 
     const getTitle = () => {
-        if (activeTab === 'wedding') return 'Wedding Collection';
-        if (activeTab === 'commercial') return 'Commercial Collection';
-        if (activeTab === 'portrait') return 'Portrait Collection';
-        return 'Photographie';
+        if (activeTab === 'wedding') return t('photography.collection.wedding');
+        if (activeTab === 'commercial') return t('photography.collection.commercial');
+        if (activeTab === 'portrait') return t('photography.collection.portrait');
+        return t('photography.page_title');
     };
 
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             {/* Header */}
-            <section className="container mx-auto px-6 mb-12 pt-12 md:pt-24">
+            <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>
-                    <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0">
-                        <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 uppercase tracking-tight">
+                    <div className="max-w-4xl mx-auto md:mx-0">
+                        <h1 className="text-3xl md:text-7xl font-bold text-foreground mb-6 uppercase tracking-cinematic">
                             {getTitle()}
                         </h1>
-                        <div className="w-24 h-1 bg-brand-gold mb-6 mx-auto md:mx-0" />
-                        <p className="text-xl text-muted leading-relaxed font-light">
-                            {activeTab
-                                ? "Immortalisons vos moments. Découvrez l'intégralité de cette collection exclusive."
-                                : "Immortalisons vos moments. Choisissez une collection pour découvrir nos réalisations."
-                            }
+                        <div className="w-16 md:w-24 h-[1px] bg-brand-gold mb-8 md:mb-10 mx-auto md:mx-0" />
+                        <p className="text-lg md:text-xl text-muted leading-relaxed font-light tracking-premium px-4 md:px-0">
+                            {t('photography.desc')}
                         </p>
                     </div>
                 </AnimatedSection>
@@ -163,7 +160,7 @@ export default function Photography() {
                             className="inline-flex items-center space-x-2 text-brand-gold hover:text-white transition-colors group"
                         >
                             <ChevronLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
-                            <span className="font-bold uppercase tracking-widest text-sm">Retour aux Collections</span>
+                            <span className="font-bold uppercase tracking-widest text-sm">{t('photography.back')}</span>
                         </button>
                     </AnimatedSection>
                 </section>
@@ -171,24 +168,24 @@ export default function Photography() {
 
             {/* Collection Selection Cards (Only when no collection is active) */}
             {!activeTab && (
-                <section className="container mx-auto px-6 mb-16 font-Inter">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <section className="container mx-auto px-6 mb-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         {/* Wedding Collection Card */}
                         <AnimatedSection delay={0.1}>
                             <div
                                 onClick={() => { setActiveTab('wedding'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={weddingPhotos[0]}
                                     alt="Wedding Collection Preview"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Wedding</h2>
-                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
-                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Wedding</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
                         </AnimatedSection>
@@ -197,18 +194,18 @@ export default function Photography() {
                         <AnimatedSection delay={0.2}>
                             <div
                                 onClick={() => { setActiveTab('portrait'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={portraitPhotos[0]}
                                     alt="Portrait Collection Preview"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Portrait</h2>
-                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
-                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Portrait</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
                         </AnimatedSection>
@@ -217,18 +214,18 @@ export default function Photography() {
                         <AnimatedSection delay={0.3}>
                             <div
                                 onClick={() => { setActiveTab('commercial'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5 md:col-span-2 lg:col-span-1"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm md:col-span-2 lg:col-span-1"
                             >
                                 <img
                                     src={commercialPhotos[0]}
                                     alt="Commercial Collection Preview"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                                    <h2 className="text-3xl font-bold text-white mb-3 tracking-wide uppercase drop-shadow-2xl">Commercial</h2>
-                                    <div className="w-8 h-0.5 bg-brand-gold transition-all duration-500 group-hover:w-16 opacity-0 group-hover:opacity-100" />
-                                    <p className="mt-4 text-white/40 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">Voir la collection</p>
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Commercial</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
                         </AnimatedSection>

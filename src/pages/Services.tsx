@@ -1,33 +1,36 @@
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../components/AnimatedSection';
 import { Video, Camera, Scissors, MonitorSmartphone } from 'lucide-react';
 
 export default function Services() {
+    const { t } = useTranslation();
+
     const services = [
         {
             id: 'videography',
-            title: 'Vidéographie',
-            desc: "Nous produisons des vidéos d'une esthétique cinématographique pour répondre à tous vos besoins de communication : publicités, films d'entreprise, couverture d'événements et clips musicaux.",
+            title: t('services.videography.title'),
+            desc: t('services.videography.desc'),
             icon: <Video className="w-8 h-8 text-brand-gold" />,
             image: '/service_videographie.png',
         },
         {
             id: 'photography',
-            title: 'Photographie',
-            desc: "Notre équipe de photographes capture l'essence de votre marque. Des portraits professionnels aux shootings produits, chaque cliché est pensé pour raconter votre histoire.",
+            title: t('services.photography.title'),
+            desc: t('services.photography.desc'),
             icon: <Camera className="w-8 h-8 text-brand-gold" />,
             image: '/service_photographie.png',
         },
         {
             id: 'montage',
-            title: 'Montage & Reels',
-            desc: "L'art du montage donne le rythme à vos images. Nous créons des vidéos dynamiques optimisées spécialement pour les réseaux sociaux (Reels, TikTok) garantissant l'engagement de votre audience.",
+            title: t('services.montage.title'),
+            desc: t('services.montage.desc'),
             icon: <Scissors className="w-8 h-8 text-brand-gold" />,
             image: '/service_montage.png',
         },
         {
             id: 'web-design',
-            title: 'Web Design',
-            desc: "Un site web doit être rapide, beau et convaincant. Nous concevons et développons des plateformes web modernes et réactives, entièrement optimisées pour vos objectifs commerciaux.",
+            title: t('services.webdesign.title'),
+            desc: t('services.webdesign.desc'),
             icon: <MonitorSmartphone className="w-8 h-8 text-brand-gold" />,
             image: '/service_webdesign.png',
         }
@@ -38,9 +41,11 @@ export default function Services() {
             <section className="container mx-auto px-6 mb-24 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Nos <span className="text-brand-gold">Services</span></h1>
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                            {t('services.page_title')}
+                        </h1>
                         <p className="text-xl text-white/60 leading-relaxed">
-                            Une gamme complète de solutions créatives pour propulser votre marque. De la conception à la réalisation, notre agence vous accompagne dans vos projets digitaux.
+                            {t('services.page_desc')}
                         </p>
                     </div>
                 </AnimatedSection>

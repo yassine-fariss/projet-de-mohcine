@@ -2,19 +2,21 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --bg-primary: #f8f9fa;
-  --text-primary: #1a1a1a;
-  --text-secondary: rgba(0, 0, 0, 0.6);
-  --border-primary: rgba(0, 0, 0, 0.1);
-  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --bg-primary: #fcfcfc;
+  --text-primary: #0a0a0a;
+  --text-secondary: rgba(10, 10, 10, 0.6);
+  --border-primary: rgba(0, 0, 0, 0.08);
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --luxury-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
 }
 
 .dark {
-  --bg-primary: #000000;
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.6);
-  --border-primary: rgba(255, 255, 255, 0.1);
-  --navbar-bg: rgba(0, 0, 0, 0.9);
+  --bg-primary: #050505;
+  --text-primary: #f0f0f0;
+  --text-secondary: rgba(240, 240, 240, 0.5);
+  --border-primary: rgba(255, 255, 255, 0.05);
+  --navbar-bg: rgba(5, 5, 5, 0.85);
+  --luxury-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
 }
 
 @theme {
@@ -30,6 +32,50 @@
 }
 
 body {
-  @apply bg-background text-foreground antialiased transition-colors duration-500;
-  font-family: 'Inter', system-ui, sans-serif;
+  @apply bg-background text-foreground antialiased font-light;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Luxury Typography Utilities */
+.tracking-cinematic {
+  letter-spacing: 0.15em;
+}
+
+@media (min-width: 768px) {
+  .tracking-cinematic {
+    letter-spacing: 0.25em;
+  }
+}
+
+.tracking-premium {
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .tracking-premium {
+    letter-spacing: 0.1em;
+  }
+}
+
+.luxury-text-glow {
+  text-shadow: 0 0 20px rgba(198, 167, 94, 0.3);
+}
+
+.luxury-shadow-sm {
+  box-shadow: var(--luxury-shadow);
+}
+
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
 }
