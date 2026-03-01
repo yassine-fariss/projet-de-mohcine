@@ -10,22 +10,26 @@ import WebDesign from './pages/portfolio/WebDesign';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
+import { ThemeProvider } from './context/ThemeContext';
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="services" element={<Services />} />
-        <Route path="portfolio">
-          <Route path="videography" element={<Videography />} />
-          <Route path="photography" element={<Photography />} />
-          <Route path="montage-reels" element={<MontageReels />} />
-          <Route path="web-design" element={<WebDesign />} />
+    <ThemeProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="services" element={<Services />} />
+          <Route path="portfolio">
+            <Route path="videography" element={<Videography />} />
+            <Route path="photography" element={<Photography />} />
+            <Route path="montage-reels" element={<MontageReels />} />
+            <Route path="web-design" element={<WebDesign />} />
+          </Route>
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </ThemeProvider>
   );
 }
 

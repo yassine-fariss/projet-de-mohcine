@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe, ChevronDown, Video, Camera, Scissors, MonitorSmartphone } from 'lucide-react';
 import logoUrl from '../assets/logo.png';
+import ThemeToggle from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 
 const portfolioItems = [
     { label: 'Vidéographie', to: '/portfolio/videography', icon: <Video className="w-4 h-4" /> },
@@ -13,6 +15,7 @@ const portfolioItems = [
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
+    const { theme } = useTheme();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,13 +57,13 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md py-4 shadow-lg border-b border-white/5' : 'bg-transparent py-6'
                 }`}
         >
             <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/" className="flex items-center">
-                    <img src={logoUrl} alt="Revo Production" className="h-12 md:h-16 w-auto mix-blend-screen object-contain" />
+                    <img src={logoUrl} alt="Revo Production" className={`h-12 md:h-16 w-auto mix-blend-screen object-contain transition-all duration-500 ${theme === 'light' ? 'invert' : ''}`} />
                 </Link>
 
                 {/* Desktop Menu */}
@@ -76,7 +79,7 @@ const Navbar = () => {
                     <div className="relative" ref={portfolioRef}>
                         <button
                             onClick={() => setIsPortfolioOpen((v) => !v)}
-                            className={`flex items-center gap-1.5 text-sm uppercase tracking-wide hover:text-brand-gold transition-colors ${isPortfolioActive ? 'text-brand-gold' : ''
+                            className={`flex items-center gap-1.5 text-sm uppercase tracking-wide hover:text-brand-gold transition-colors ${isPortfolioActive ? 'text-brand-gold' : 'text-foreground'
                                 }`}
                         >
                             Nos Portfolio
@@ -87,7 +90,7 @@ const Navbar = () => {
 
                         {/* Dropdown panel */}
                         <div
-                            className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-black/95 border border-brand-gold/20 backdrop-blur-md shadow-2xl transition-all duration-300 origin-top ${isPortfolioOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
+                            className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-background/95 border border-brand-gold/20 backdrop-blur-md shadow-2xl transition-all duration-300 origin-top ${isPortfolioOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
                                 }`}
                         >
                             {/* Gold top accent */}
@@ -98,7 +101,7 @@ const Navbar = () => {
                                     <Link
                                         key={item.to}
                                         to={item.to}
-                                        className={`flex items-center gap-3 px-5 py-3 text-sm hover:bg-brand-gold/10 hover:text-brand-gold transition-colors group ${location.pathname === item.to ? 'text-brand-gold bg-brand-gold/5' : 'text-white/80'
+                                        className={`flex items-center gap-3 px-5 py-3 text-sm hover:bg-brand-gold/10 hover:text-brand-gold transition-colors group ${location.pathname === item.to ? 'text-brand-gold bg-brand-gold/5' : 'text-foreground/80'
                                             }`}
                                     >
                                         <span className="text-brand-gold/60 group-hover:text-brand-gold transition-colors">
@@ -124,26 +127,33 @@ const Navbar = () => {
                             <Globe className="w-4 h-4" />
                             <span className="uppercase">{i18n.language}</span>
                         </button>
-                        <div className="absolute right-0 mt-2 w-24 bg-black border border-brand-gold/30 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                        <div className="absolute right-0 mt-2 w-24 bg-background border border-brand-gold/30 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                             <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm hover:bg-brand-gold/20 hover:text-brand-gold">FR</button>
                             <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm hover:bg-brand-gold/20 hover:text-brand-gold">EN</button>
                             <button onClick={() => changeLanguage('ar')} className="block w-full text-left px-4 py-2 text-sm hover:bg-brand-gold/20 hover:text-brand-gold">AR</button>
                         </div>
                     </div>
+
+                    <div className="pl-4 border-l border-white/10">
+                        <ThemeToggle />
+                    </div>
                 </div>
 
-                {/* Mobile menu button */}
-                <button
-                    className="md:hidden text-white hover:text-brand-gold"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                {/* Mobile menu and toggle */}
+                <div className="flex items-center space-x-4 md:hidden">
+                    <ThemeToggle />
+                    <button
+                        className="text-foreground hover:text-brand-gold"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-black/97 backdrop-blur-md border-t border-white/10 py-6 px-6 flex flex-col space-y-4">
+                <div className="md:hidden absolute top-full left-0 w-full bg-background/97 backdrop-blur-md border-t border-white/10 py-6 px-6 flex flex-col space-y-4">
                     <Link to="/" className="text-lg uppercase tracking-wide hover:text-brand-gold transition-colors">
                         {t('nav.home')}
                     </Link>
@@ -170,7 +180,7 @@ const Navbar = () => {
                                     <Link
                                         key={item.to}
                                         to={item.to}
-                                        className={`flex items-center gap-2 text-base hover:text-brand-gold transition-colors ${location.pathname === item.to ? 'text-brand-gold' : 'text-white/70'
+                                        className={`flex items-center gap-2 text-base hover:text-brand-gold transition-colors ${location.pathname === item.to ? 'text-brand-gold' : 'text-foreground/70'
                                             }`}
                                     >
                                         <span className="text-brand-gold/60">{item.icon}</span>
@@ -189,9 +199,9 @@ const Navbar = () => {
                     </Link>
 
                     <div className="flex space-x-4 pt-4 border-t border-white/10">
-                        <button onClick={() => { changeLanguage('fr'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'fr' ? 'text-brand-gold' : 'text-white'}`}>FR</button>
-                        <button onClick={() => { changeLanguage('en'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'en' ? 'text-brand-gold' : 'text-white'}`}>EN</button>
-                        <button onClick={() => { changeLanguage('ar'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'ar' ? 'text-brand-gold' : 'text-white'}`}>AR</button>
+                        <button onClick={() => { changeLanguage('fr'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'fr' ? 'text-brand-gold' : 'text-foreground'}`}>FR</button>
+                        <button onClick={() => { changeLanguage('en'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'en' ? 'text-brand-gold' : 'text-foreground'}`}>EN</button>
+                        <button onClick={() => { changeLanguage('ar'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'ar' ? 'text-brand-gold' : 'text-foreground'}`}>AR</button>
                     </div>
                 </div>
             )}

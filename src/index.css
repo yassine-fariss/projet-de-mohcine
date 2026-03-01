@@ -1,13 +1,35 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities";
 
+:root {
+  --bg-primary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border-primary: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+.dark {
+  --bg-primary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --navbar-bg: rgba(0, 0, 0, 0.9);
+}
+
 @theme {
   --color-brand-gold: #C6A75E;
-  --color-brand-black: #000000;
-  --color-brand-white: #FFFFFF;
+  --color-brand-black: var(--bg-primary);
+  --color-brand-white: var(--text-primary);
+
+  /* Additional theme tokens */
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-border-subtle: var(--border-primary);
 }
 
 body {
-  @apply bg-brand-black text-brand-white antialiased;
+  @apply bg-background text-foreground antialiased transition-colors duration-500;
   font-family: 'Inter', system-ui, sans-serif;
 }

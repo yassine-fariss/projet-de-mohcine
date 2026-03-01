@@ -69,7 +69,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
     return (
         <AnimatedSection delay={index * 0.05}>
             <div
-                className={`group relative cursor-pointer overflow-hidden border border-white/5 hover:border-brand-gold/50 transition-colors break-inside-avoid bg-white/5 mb-4 ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
+                className={`group relative cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/50 transition-colors break-inside-avoid bg-background mb-4 ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
                     }`}
                 onClick={onClick}
             >
@@ -135,16 +135,16 @@ export default function Photography() {
     };
 
     return (
-        <div className="min-h-screen bg-black pt-12 pb-24">
+        <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             {/* Header */}
             <section className="container mx-auto px-6 mb-12 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl text-center md:text-left mx-auto md:mx-0">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 uppercase tracking-tight">
+                        <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 uppercase tracking-tight">
                             {getTitle()}
                         </h1>
                         <div className="w-24 h-1 bg-brand-gold mb-6 mx-auto md:mx-0" />
-                        <p className="text-xl text-white/60 leading-relaxed font-light">
+                        <p className="text-xl text-muted leading-relaxed font-light">
                             {activeTab
                                 ? "Immortalisons vos moments. Découvrez l'intégralité de cette collection exclusive."
                                 : "Immortalisons vos moments. Choisissez une collection pour découvrir nos réalisations."
@@ -177,7 +177,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.1}>
                             <div
                                 onClick={() => { setActiveTab('wedding'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5"
                             >
                                 <img
                                     src={weddingPhotos[0]}
@@ -197,7 +197,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.2}>
                             <div
                                 onClick={() => { setActiveTab('portrait'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5"
                             >
                                 <img
                                     src={portraitPhotos[0]}
@@ -217,7 +217,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.3}>
                             <div
                                 onClick={() => { setActiveTab('commercial'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-white/10 hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 md:col-span-2 lg:col-span-1"
+                                className="group relative aspect-[16/9] md:aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold transition-all duration-700 rounded-2xl bg-white/5 dark:bg-white/5 md:col-span-2 lg:col-span-1"
                             >
                                 <img
                                     src={commercialPhotos[0]}

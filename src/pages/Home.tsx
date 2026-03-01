@@ -69,7 +69,7 @@ function HomeVideoCard({ video, index }: { video: typeof homeVideos[0]; index: n
     return (
         <AnimatedSection delay={index * 0.15}>
             <div
-                className="group relative overflow-hidden bg-black border border-white/5 hover:border-[#C6A75E]/60 hover:shadow-[0_0_30px_rgba(198,167,94,0.12)] transition-all duration-300"
+                className="group relative overflow-hidden bg-background border border-border-subtle hover:border-[#C6A75E]/60 hover:shadow-[0_0_30px_rgba(198,167,94,0.12)] transition-all duration-300"
                 style={{ aspectRatio: '16/9' }}
             >
                 <video
@@ -87,7 +87,7 @@ function HomeVideoCard({ video, index }: { video: typeof homeVideos[0]; index: n
                         className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-black/50 group-hover:bg-black/30 transition-all duration-300"
                         onClick={handlePlay}
                     >
-                        <div className="w-14 h-14 rounded-full border-2 border-[#C6A75E] bg-black/50 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C6A75E]/20">
+                        <div className="w-14 h-14 rounded-full border-2 border-[#C6A75E] bg-background/50 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C6A75E]/20">
                             <Play className="w-6 h-6 text-[#C6A75E] ml-0.5" />
                         </div>
                         <div className="absolute bottom-5 left-5 text-left z-10">
