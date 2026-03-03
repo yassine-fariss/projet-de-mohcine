@@ -274,41 +274,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Video Cinema Section */}
-            <section className="py-24 bg-[#050505] relative overflow-hidden">
-                <div className="container mx-auto px-6">
-                    <AnimatedSection>
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-widest">{t('video_cinema.title')}</h2>
-                            <div className="w-24 h-1 bg-brand-gold mx-auto mb-6" />
-                            <p className="text-white/60 max-w-2xl mx-auto italic">
-                                {t('video_cinema.subtitle')}
-                            </p>
-                        </div>
-                    </AnimatedSection>
 
-                    {/* Video Grid Placeholder */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                        {[1, 2].map((i) => (
-                            <AnimatedSection key={i} delay={0.2 * i}>
-                                <div className="relative aspect-video group overflow-hidden border border-white/5 bg-neutral-900/50 backdrop-blur-sm">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-brand-gold/30 flex flex-col items-center gap-4">
-                                            <Video className="w-12 h-12" />
-                                            <span className="text-[10px] uppercase tracking-widest font-medium">Video Cinema {i}</span>
-                                        </div>
-                                    </div>
-                                    {/* Overlay glow on hover */}
-                                    <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    {/* Cinematic corner accents */}
-                                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-brand-gold/20" />
-                                    <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-brand-gold/20" />
-                                </div>
-                            </AnimatedSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* Clients Section */}
             <section className="py-24 bg-[#050505]">

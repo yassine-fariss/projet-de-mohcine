@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Videography from './pages/portfolio/Videography';
 import Photography from './pages/portfolio/Photography';
 import MontageReels from './pages/portfolio/MontageReels';
+import VideoCinema from './pages/portfolio/VideoCinema';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="videography" element={<Videography />} />
             <Route path="photography" element={<Photography />} />
             <Route path="montage-reels" element={<MontageReels />} />
+            <Route path="video-cinema" element={<VideoCinema />} />
           </Route>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />

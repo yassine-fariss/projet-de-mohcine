@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Globe, ChevronDown, Video, Camera, Scissors } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Video, Camera, Scissors, Clapperboard } from 'lucide-react';
 import logoUrl from '../assets/logo.png';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
@@ -22,6 +22,7 @@ const Navbar = () => {
         { label: t('services.videography.title'), to: '/portfolio/videography', icon: <Video className="w-4 h-4" /> },
         { label: t('services.photography.title'), to: '/portfolio/photography', icon: <Camera className="w-4 h-4" /> },
         { label: t('services.montage.title'), to: '/portfolio/montage-reels', icon: <Scissors className="w-4 h-4" /> },
+        { label: t('video_cinema.title'), to: '/portfolio/video-cinema', icon: <Clapperboard className="w-4 h-4" /> },
     ];
 
     useEffect(() => {
