@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
-import { Play, Clapperboard } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 const videoCinemaWorks = (t: any) => [
     {
@@ -121,23 +121,6 @@ function VideoCard({ video, index }: { video: any; index: number }) {
     );
 }
 
-const PlaceholderCard = ({ index }: { index: number }) => (
-    <AnimatedSection delay={index * 0.15}>
-        <div className="group relative aspect-video overflow-hidden border border-white/5 bg-neutral-900/50 backdrop-blur-sm rounded-xl transition-all duration-700 hover:border-brand-gold/20 grayscale hover:grayscale-0">
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-brand-gold/10 flex flex-col items-center gap-4 group-hover:text-brand-gold/20 transition-colors duration-700">
-                    <Clapperboard className="w-12 h-12" />
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-medium italic">Upcoming Film</span>
-                </div>
-            </div>
-
-            {/* Cinematic corner accents */}
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-brand-gold/5 transition-all duration-700 group-hover:border-brand-gold/20" />
-            <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-brand-gold/5 transition-all duration-700 group-hover:border-brand-gold/20" />
-        </div>
-    </AnimatedSection>
-);
-
 export default function VideoCinema() {
     const { t } = useTranslation();
     const works = videoCinemaWorks(t);
@@ -161,12 +144,9 @@ export default function VideoCinema() {
 
             {/* Video Grid */}
             <section className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
                     {works.map((video, index) => (
                         <VideoCard key={video.src} video={video} index={index} />
-                    ))}
-                    {[0, 1, 2, 3].map((i) => (
-                        <PlaceholderCard key={`placeholder-${i}`} index={i + works.length} />
                     ))}
                 </div>
             </section>
