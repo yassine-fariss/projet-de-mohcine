@@ -186,12 +186,12 @@ export default function Photography() {
                         <AnimatedSection delay={0.1}>
                             <div
                                 onClick={() => { setActiveTab('wedding'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/3] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={weddingPhotos[0]}
                                     alt="Wedding Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -206,12 +206,12 @@ export default function Photography() {
                         <AnimatedSection delay={0.2}>
                             <div
                                 onClick={() => { setActiveTab('portrait'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/3] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={portraitPhotos[0]}
                                     alt="Portrait Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -226,7 +226,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.3}>
                             <div
                                 onClick={() => { setActiveTab('commercial'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/3] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={commercialPhotos[0]}
@@ -246,12 +246,12 @@ export default function Photography() {
                         <AnimatedSection delay={0.4}>
                             <div
                                 onClick={() => { setActiveTab('kaftan'); setSelectedIndex(null); }}
-                                className="group relative aspect-[16/9] md:aspect-[4/3] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={kaftanPhotos[0]}
                                     alt="Kaftan Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
