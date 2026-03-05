@@ -26,7 +26,7 @@ const teamData = (t: any) => [
         instagram: 'https://www.instagram.com/ghaziabdessamad?igsh=eTJxMjZ0NHd1cGUy',
     },
     {
-        name: 'Othmane Haddach',
+        name: 'Othmane',
         role: t('role.editor'),
         image: null,
         instagram: 'https://www.instagram.com/oth_2.1?igsh=bGhsaXg3OGxoamZu',
