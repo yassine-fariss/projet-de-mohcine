@@ -15,25 +15,25 @@ const homeVideos = (t: any) => [
 const teamData = (t: any) => [
     {
         name: 'Mohcine Rafik',
-        role: t('role.videography'),
+        role: t('role.videographer'),
         image: '/teams/mohcine rafik.png',
         instagram: 'https://www.instagram.com/mohcine_rafi/',
     },
     {
         name: 'Abdessamad Ghazi',
-        role: t('role.photography'),
+        role: t('role.photographer'),
         image: '/teams/abdelsamad ghazi.webp',
         instagram: 'https://www.instagram.com/ghaziabdessamad?igsh=eTJxMjZ0NHd1cGUy',
     },
     {
         name: 'Othmane Haddach',
-        role: t('role.editing'),
+        role: t('role.editor'),
         image: null,
         instagram: 'https://www.instagram.com/oth_2.1?igsh=bGhsaXg3OGxoamZu',
     },
     {
         name: 'Soukaina Laanaya',
-        role: t('role.marketing'),
+        role: t('role.social_media'),
         image: '/teams/soukaina .jpeg',
         instagram: 'https://www.instagram.com/ilus_marokea?igsh=ODdxdHljbDZvaDBp',
     },
