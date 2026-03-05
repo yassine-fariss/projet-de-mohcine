@@ -107,8 +107,8 @@ function HomeVideoCard({ video, index }: { video: any; index: number }) {
 }
 
 const ProductionCinemaSection = ({ t }: { t: any }) => {
-    const videoSrc = "/production cinema/Tieser PFE RAFIK.mp4";
-    const thumbnail = useVideoThumbnail(videoSrc, 3);
+    const videoSrc = "/production cinema/La Main Gauche Trailer - Mohcine Rafik Copie 1.mp4";
+    const thumbnail = useVideoThumbnail(videoSrc, 5);
 
     return (
         <section className="py-24 bg-black relative overflow-hidden">
