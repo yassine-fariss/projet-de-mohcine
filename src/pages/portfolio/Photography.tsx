@@ -318,7 +318,7 @@ export default function Photography() {
                                 <img
                                     src={schoolPhotos[6]}
                                     alt="School Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
