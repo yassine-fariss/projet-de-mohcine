@@ -30,3 +30,16 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 
 ## 🌐 Deployment Details
 This project is fully optimized for Vercel deployment. Once pushed to the `main` branch, Vercel will automatically build and deploy the changes, ensuring high performance and a premium web experience.
+
+## 🔗 Domain Configuration
+
+To link your custom domain name to this project on Vercel:
+
+1. **Add Domain in Vercel:**
+   - Go to your Project Settings in the Vercel Dashboard.
+   - Select **Domains** and enter your domain name (e.g., `revoproductions.com`).
+2. **Configure DNS (at your Registrar):**
+   - **A Record:** Point `@` to `76.76.21.21`.
+   - **CNAME Record:** Point `www` to `cname.vercel-dns.com`.
+3. **Wait for Propagation:**
+   - Vercel will automatically detect the DNS changes and issue an SSL certificate for HTTPS.
