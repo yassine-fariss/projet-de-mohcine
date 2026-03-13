@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import logoUrl from '../assets/logo.png';
 
 const Footer = () => {
@@ -57,12 +57,6 @@ const Footer = () => {
                                 className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold transition-colors"
                             >
                                 <Instagram className="w-4 h-4" />
-                            </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold transition-colors">
-                                <Facebook className="w-4 h-4" />
-                            </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold transition-colors">
-                                <Linkedin className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
