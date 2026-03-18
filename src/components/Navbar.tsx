@@ -4,13 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe, ChevronDown, Video, Camera, Scissors, Clapperboard } from 'lucide-react';
 import logoUrl from '../assets/logo.png';
 import ThemeToggle from './ThemeToggle';
-import { useTheme } from '../context/ThemeContext';
 
 
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
-    const { theme } = useTheme();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,11 +63,11 @@ const Navbar = () => {
             <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/" className="flex items-center group">
-                    <img
-                        src={logoUrl}
-                        alt="Revo Productions"
-                        className={`h-9 md:h-16 w-auto object-contain transition-all duration-700 ${theme === 'light' ? 'invert brightness-0' : ''} group-hover:scale-105`}
-                    />
+                        <img
+                            src={logoUrl}
+                            alt="Revo Productions"
+                            className={`h-9 md:h-16 w-auto object-contain transition-all duration-700 group-hover:scale-105`}
+                        />
                 </Link>
 
                 {/* Desktop Menu */}
