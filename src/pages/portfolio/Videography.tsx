@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Play } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 const videographyVideos = (t: any) => [
     {
@@ -133,6 +134,11 @@ export default function Videography() {
 
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
+            <SEO 
+                title="Portfolio Vidéographie | Revo Productions"
+                description="Découvrez nos réalisations en vidéographie. Films d'entreprise, vidéos institutionnelles et reportages par Revo Productions au Maroc."
+                keywords="vidéographie entreprise, film institutionnel maroc, portfolio vidéo, production vidéo casablanca"
+            />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>

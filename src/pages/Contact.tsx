@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../components/AnimatedSection';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 export default function Contact() {
     const { t } = useTranslation();
@@ -21,6 +22,11 @@ export default function Contact() {
 
     return (
         <div className="min-h-screen bg-black pt-12">
+            <SEO 
+                title="Contactez Nous | Revo Productions Casablanca"
+                description="Prêt à donner vie à votre projet audiovisuel ? Contactez Revo Productions à Casablanca. Réservez nos services de photographie et vidéo."
+                keywords="contact revo productions, agence vidéo casablanca, réserver vidéaste maroc"
+            />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 pt-12 md:pt-24">
                 <AnimatedSection>

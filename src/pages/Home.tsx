@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../components/Button';
 import AnimatedSection from '../components/AnimatedSection';
 import ServiceCard from '../components/ServiceCard';
+import SEO from '../components/SEO';
 
 const homeVideos = (t: any) => [
     { src: '/video/Skoooda.mp4', title: 'Skoooda', category: t('category.corporate'), seekTime: 2 },
@@ -157,6 +158,11 @@ export default function Home() {
 
     return (
         <div className="min-h-screen">
+            <SEO 
+                title="Accueil | Revo Productions | Production Vidéo Casablanca"
+                description="Agence de production audiovisuelle à Casablanca. Création de films d'entreprise, publicités, clips musicaux, et contenu digital de haute qualité."
+                keywords="production audiovisuelle, production vidéo casablanca, agence vidéo maroc, film corporate"
+            />
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Image with optimized loading and subtle zoom */}

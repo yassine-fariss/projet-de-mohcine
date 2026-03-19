@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Play } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 const videoCinemaWorks = (t: any) => [
     {
@@ -127,6 +128,11 @@ export default function VideoCinema() {
 
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
+            <SEO 
+                title="Production Cinématographique | Revo Productions"
+                description="Projets cinématographiques et courts-métrages par Revo Productions. Une qualité visuelle exceptionnelle pour des histoires marquantes."
+                keywords="production cinématographique, court-métrage maroc, réalisation cinéma casablanca"
+            />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>

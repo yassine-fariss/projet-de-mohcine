@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Play } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 const reels = [
     {
@@ -144,6 +145,11 @@ export default function MontageReels() {
 
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
+            <SEO 
+                title="Montage & Reels Instagram | Revo Productions"
+                description="Boostez votre présence digitale avec nos montages vidéo dynamiques et Reels Instagram percutants créés par nos experts en contenu."
+                keywords="montage vidéo, reels instagram, contenu digital, monteur vidéo maroc"
+            />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>

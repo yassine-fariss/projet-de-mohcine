@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 const weddingPhotos = [
     '/Photo/weddings/DSC01111-1.jpg.jpeg',
@@ -175,6 +176,11 @@ export default function Photography() {
 
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
+            <SEO 
+                title={`${getTitle()} | Photographie | Revo Productions`}
+                description="Parcourez notre portfolio de photographie : mariage, événements, portraits, caftans et commerciaux par nos photographes professionnels à Casablanca."
+                keywords="photographe professionnel casablanca, photographie mariage maroc, shooting caftan, photographe commercial"
+            />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 md:mb-20 pt-12 md:pt-24 text-center md:text-left">
                 <AnimatedSection>

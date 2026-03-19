@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../components/AnimatedSection';
+import SEO from '../components/SEO';
 
 export default function About() {
     const { t } = useTranslation();
@@ -33,6 +34,10 @@ export default function About() {
 
     return (
         <div className="min-h-screen bg-black pt-12 pb-24">
+            <SEO 
+                title="À Propos | Revo Productions"
+                description="Découvrez l'équipe créative de Revo Productions au Maroc. Nos experts en vidéographie, photographie et montage donnent vie à vos projets."
+            />
             {/* Intro Section */}
             <section className="container mx-auto px-6 mb-32">
                 <AnimatedSection>

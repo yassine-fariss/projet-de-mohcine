@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import AnimatedSection from '../components/AnimatedSection';
 import { Video, Camera, Scissors } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Services() {
     const { t } = useTranslation();
@@ -31,6 +32,11 @@ export default function Services() {
 
     return (
         <div className="min-h-screen bg-[#050505] pt-12 pb-24">
+            <SEO 
+                title="Nos Services | Revo Productions"
+                description="Nos services de production : vidéographie, photographie professionnelle, montage vidéo et création de Reels pour votre communication digitale."
+                keywords="services vidéo, photographie professionnelle, montage vidéo, reels instagram"
+            />
             <section className="container mx-auto px-6 mb-24 pt-12 md:pt-24">
                 <AnimatedSection>
                     <div className="max-w-3xl">
