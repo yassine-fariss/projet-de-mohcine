@@ -135,8 +135,8 @@ export default function Videography() {
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             <SEO 
-                title="Portfolio Vidéographie | Revo Productions"
-                description="Découvrez nos réalisations en vidéographie. Films d'entreprise, vidéos institutionnelles et reportages par Revo Productions au Maroc."
+                title="Portfolio Vidéographie | Revo Production"
+                description="Découvrez nos réalisations en vidéographie. Films d'entreprise, vidéos institutionnelles et reportages par Revo Production au Maroc."
                 keywords="vidéographie entreprise, film institutionnel maroc, portfolio vidéo, production vidéo casablanca"
             />
             {/* Header */}

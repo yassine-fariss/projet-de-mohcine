@@ -159,9 +159,9 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             <SEO 
-                title="Accueil | Revo Productions | Production Vidéo Casablanca"
-                description="Agence de production audiovisuelle à Casablanca. Création de films d'entreprise, publicités, clips musicaux, et contenu digital de haute qualité."
-                keywords="production audiovisuelle, production vidéo casablanca, agence vidéo maroc, film corporate"
+                title="Revo Production – Agence de Production Audiovisuelle"
+                description="Revo Production est votre agence de production audiovisuelle à Casablanca. Création de films d'entreprise, publicités, clips musicaux, et contenu digital de haute qualité."
+                keywords="Revo Production, production audiovisuelle, production vidéo casablanca, agence vidéo maroc, film corporate"
             />
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">

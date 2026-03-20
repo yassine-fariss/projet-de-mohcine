@@ -33,7 +33,7 @@ export default function Services() {
     return (
         <div className="min-h-screen bg-[#050505] pt-12 pb-24">
             <SEO 
-                title="Nos Services | Revo Productions"
+                title="Nos Services | Revo Production"
                 description="Nos services de production : vidéographie, photographie professionnelle, montage vidéo et création de Reels pour votre communication digitale."
                 keywords="services vidéo, photographie professionnelle, montage vidéo, reels instagram"
             />

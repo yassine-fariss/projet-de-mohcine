@@ -23,9 +23,9 @@ export default function Contact() {
     return (
         <div className="min-h-screen bg-black pt-12">
             <SEO 
-                title="Contactez Nous | Revo Productions Casablanca"
-                description="Prêt à donner vie à votre projet audiovisuel ? Contactez Revo Productions à Casablanca. Réservez nos services de photographie et vidéo."
-                keywords="contact revo productions, agence vidéo casablanca, réserver vidéaste maroc"
+                title="Contactez Nous | Revo Production Casablanca"
+                description="Prêt à donner vie à votre projet audiovisuel ? Contactez Revo Production à Casablanca. Réservez nos services de photographie et vidéo."
+                keywords="contact revo production, agence vidéo casablanca, réserver vidéaste maroc"
             />
             {/* Header */}
             <section className="container mx-auto px-6 mb-16 pt-12 md:pt-24">

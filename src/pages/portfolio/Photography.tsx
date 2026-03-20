@@ -177,7 +177,7 @@ export default function Photography() {
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             <SEO 
-                title={`${getTitle()} | Photographie | Revo Productions`}
+                title={`${getTitle()} | Photographie | Revo Production`}
                 description="Parcourez notre portfolio de photographie : mariage, événements, portraits, caftans et commerciaux par nos photographes professionnels à Casablanca."
                 keywords="photographe professionnel casablanca, photographie mariage maroc, shooting caftan, photographe commercial"
             />

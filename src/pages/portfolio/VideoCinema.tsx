@@ -129,8 +129,8 @@ export default function VideoCinema() {
     return (
         <div className="min-h-screen bg-background pt-12 pb-24 transition-colors duration-500">
             <SEO 
-                title="Production Cinématographique | Revo Productions"
-                description="Projets cinématographiques et courts-métrages par Revo Productions. Une qualité visuelle exceptionnelle pour des histoires marquantes."
+                title="Production Cinématographique | Revo Production"
+                description="Projets cinématographiques et courts-métrages par Revo Production. Une qualité visuelle exceptionnelle pour des histoires marquantes."
                 keywords="production cinématographique, court-métrage maroc, réalisation cinéma casablanca"
             />
             {/* Header */}
