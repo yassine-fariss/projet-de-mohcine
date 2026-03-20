@@ -3,7 +3,7 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
     // Replace with the actual phone number
-    const phoneNumber = "212661000000"; // Placeholder number
+    const phoneNumber = "212625254219"; // Main contact number
     const message = "Bonjour Revo Productions, je souhaite avoir plus d'informations sur vos services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
