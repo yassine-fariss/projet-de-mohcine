@@ -97,6 +97,23 @@ const schoolPhotos = [
     '/school/Img875.jpg.jpeg',
 ];
 
+const foodPhotos = [
+    '/food/GH806095.JPG',
+    '/food/GH806106-Modifier.JPG',
+    '/food/GH806156-Modifier-Modifier-Modifier.JPG',
+    '/food/GH806162-Modifier.JPG',
+    '/food/GH806168-Modifier.JPG',
+    '/food/GH806177-Modifier.JPG',
+    '/food/GH806188.JPG',
+    '/food/GH806206-Modifier.JPG',
+    '/food/GH806221-Modifier.JPG',
+    '/food/GH806222-Modifier.JPG',
+    '/food/GH806262-Modifier.JPG',
+    '/food/GH806295-Modifier-2.JPG',
+    '/food/GH806295-Modifier.JPG',
+    '/food/GH806299-Modifier.JPG',
+];
+
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -138,7 +155,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 export default function Photography() {
     const { t } = useTranslation();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | null>(null);
+    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | 'food' | null>(null);
 
     const getPhotos = () => {
         if (activeTab === 'wedding') return weddingPhotos;
@@ -146,6 +163,8 @@ export default function Photography() {
         if (activeTab === 'portrait') return portraitPhotos;
         if (activeTab === 'caftan') return caftanPhotos;
         if (activeTab === 'jewelry') return jewelryPhotos;
+        if (activeTab === 'school') return schoolPhotos;
+        if (activeTab === 'food') return foodPhotos;
         return [];
     };
 
@@ -171,6 +190,7 @@ export default function Photography() {
         if (activeTab === 'caftan') return t('photography.collection.caftan');
         if (activeTab === 'jewelry') return t('photography.collection.jewelry');
         if (activeTab === 'school') return t('photography.collection.school');
+        if (activeTab === 'food') return t('photography.collection.food');
         return t('photography.page_title');
     };
 
@@ -335,6 +355,26 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700 z-20" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-30">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">School</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Food Collection Card */}
+                        <AnimatedSection delay={0.7}>
+                            <div
+                                onClick={() => { setActiveTab('food'); setSelectedIndex(null); }}
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                            >
+                                <img
+                                    src={foodPhotos[2]}
+                                    alt="Food Collection Preview"
+                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Food</h2>
                                     <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
