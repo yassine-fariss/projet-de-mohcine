@@ -157,41 +157,41 @@ const fifmPhotos = [
 ];
 
 const mawazinPhotos = [
-    '/Mawazin/DSC03105.jpg',
-    '/Mawazin/DSC03123.jpg',
-    '/Mawazin/DSC03185.jpg',
-    '/Mawazin/DSC03191.jpg',
-    '/Mawazin/DSC03193.jpg',
-    '/Mawazin/DSC03202.jpg',
-    '/Mawazin/DSC06156.jpg',
-    '/Mawazin/DSC06157.jpg',
-    '/Mawazin/DSC06162.jpg',
-    '/Mawazin/DSC06171.jpg',
-    '/Mawazin/DSC06191.jpg',
-    '/Mawazin/DSC06209.jpg',
-    '/Mawazin/DSC06223.jpg',
-    '/Mawazin/DSC06226.jpg',
-    '/Mawazin/DSC06231.jpg',
-    '/Mawazin/DSC06237.jpg',
-    '/Mawazin/DSC06400.jpg',
-    '/Mawazin/DSC06402.jpg',
-    '/Mawazin/DSC06407.jpg',
-    '/Mawazin/DSC06434.jpg',
-    '/Mawazin/DSC06438.jpg',
-    '/Mawazin/DSC06440.jpg',
-    '/Mawazin/DSC06454.jpg',
-    '/Mawazin/DSC06456.jpg',
-    '/Mawazin/DSC06472.jpg',
-    '/Mawazin/DSC07244.jpg',
-    '/Mawazin/DSC07247.jpg',
-    '/Mawazin/DSC07256.jpg',
-    '/Mawazin/DSC07260.jpg',
-    '/Mawazin/DSC07270.jpg',
-    '/Mawazin/DSC07271.jpg',
-    '/Mawazin/DSC07275.jpg',
-    '/Mawazin/DSC07277.jpg',
-    '/Mawazin/DSC07296.jpg',
-    '/Mawazin/DSC07300.jpg',
+    '/mawazin/DSC03105.jpg',
+    '/mawazin/DSC03123.jpg',
+    '/mawazin/DSC03185.jpg',
+    '/mawazin/DSC03191.jpg',
+    '/mawazin/DSC03193.jpg',
+    '/mawazin/DSC03202.jpg',
+    '/mawazin/DSC06156.jpg',
+    '/mawazin/DSC06157.jpg',
+    '/mawazin/DSC06162.jpg',
+    '/mawazin/DSC06171.jpg',
+    '/mawazin/DSC06191.jpg',
+    '/mawazin/DSC06209.jpg',
+    '/mawazin/DSC06223.jpg',
+    '/mawazin/DSC06226.jpg',
+    '/mawazin/DSC06231.jpg',
+    '/mawazin/DSC06237.jpg',
+    '/mawazin/DSC06400.jpg',
+    '/mawazin/DSC06402.jpg',
+    '/mawazin/DSC06407.jpg',
+    '/mawazin/DSC06434.jpg',
+    '/mawazin/DSC06438.jpg',
+    '/mawazin/DSC06440.jpg',
+    '/mawazin/DSC06454.jpg',
+    '/mawazin/DSC06456.jpg',
+    '/mawazin/DSC06472.jpg',
+    '/mawazin/DSC07244.jpg',
+    '/mawazin/DSC07247.jpg',
+    '/mawazin/DSC07256.jpg',
+    '/mawazin/DSC07260.jpg',
+    '/mawazin/DSC07270.jpg',
+    '/mawazin/DSC07271.jpg',
+    '/mawazin/DSC07275.jpg',
+    '/mawazin/DSC07277.jpg',
+    '/mawazin/DSC07296.jpg',
+    '/mawazin/DSC07300.jpg',
 ];
 
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
@@ -491,13 +491,19 @@ export default function Photography() {
                                 onClick={() => { setActiveTab('mawazin'); setSelectedIndex(null); }}
                                 className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
+                                {/* Ambient Blurred Background to fill margins */}
+                                <img
+                                    src={mawazinPhotos[14]}
+                                    alt=""
+                                    className="absolute inset-0 w-full h-full object-cover blur-[30px] opacity-70 scale-125 transition-transform duration-1000 group-hover:scale-150"
+                                />
                                 <img
                                     src={mawazinPhotos[14]}
                                     alt="Mawazin Collection Preview"
-                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-1000 group-hover:scale-105 z-10"
                                 />
-                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
-                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700 z-20" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-30">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Mawazin</h2>
                                     <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
