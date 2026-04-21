@@ -114,6 +114,48 @@ const foodPhotos = [
     '/food/GH806299-Modifier.JPG',
 ];
 
+const fifmPhotos = [
+    '/FIFM/DSC01159.jpg',
+    '/FIFM/DSC01183.jpg',
+    '/FIFM/DSC01343.jpg',
+    '/FIFM/DSC01383.jpg',
+    '/FIFM/DSC01398.jpg',
+    '/FIFM/DSC01410.jpg',
+    '/FIFM/DSC01460.jpg',
+    '/FIFM/DSC01464.jpg',
+    '/FIFM/DSC01514.jpg',
+    '/FIFM/DSC01517.jpg',
+    '/FIFM/DSC01537.jpg',
+    '/FIFM/DSC01699.jpg',
+    '/FIFM/DSC01708.jpg',
+    '/FIFM/DSC01741.jpg',
+    '/FIFM/DSC01742.jpg',
+    '/FIFM/DSC01751.jpg',
+    '/FIFM/DSC01773.jpg',
+    '/FIFM/DSC01793.jpg',
+    '/FIFM/DSC01797.jpg',
+    '/FIFM/DSC01802.jpg',
+    '/FIFM/DSC01813.jpg',
+    '/FIFM/DSC01824.jpg',
+    '/FIFM/DSC01842.jpg',
+    '/FIFM/IMG-20251128-WA0251.jpg',
+    '/FIFM/IMG-20251129-WA0060.jpg',
+    '/FIFM/IMG-20251129-WA0066.jpg',
+    '/FIFM/IMG-20251129-WA0068.jpg',
+    '/FIFM/IMG-20251129-WA0090.jpg',
+    '/FIFM/IMG-20251129-WA0092.jpg',
+    '/FIFM/IMG-20251129-WA0094.jpg',
+    '/FIFM/IMG-20251129-WA0102.jpg',
+    '/FIFM/IMG-20251129-WA0104.jpg',
+    '/FIFM/IMG-20251129-WA0110.jpg',
+    '/FIFM/IMG-20251129-WA0112.jpg',
+    '/FIFM/IMG-20251129-WA0122.jpg',
+    '/FIFM/IMG-20251129-WA0129.jpg',
+    '/FIFM/IMG-20251129-WA0240.jpg',
+    '/FIFM/IMG-20251129-WA0246.jpg',
+    '/FIFM/IMG-20251207-WA0019.jpg',
+];
+
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -155,7 +197,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 export default function Photography() {
     const { t } = useTranslation();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | 'food' | null>(null);
+    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | 'food' | 'fifm' | null>(null);
 
     const getPhotos = () => {
         if (activeTab === 'wedding') return weddingPhotos;
@@ -165,6 +207,7 @@ export default function Photography() {
         if (activeTab === 'jewelry') return jewelryPhotos;
         if (activeTab === 'school') return schoolPhotos;
         if (activeTab === 'food') return foodPhotos;
+        if (activeTab === 'fifm') return fifmPhotos;
         return [];
     };
 
@@ -191,6 +234,7 @@ export default function Photography() {
         if (activeTab === 'jewelry') return t('photography.collection.jewelry');
         if (activeTab === 'school') return t('photography.collection.school');
         if (activeTab === 'food') return t('photography.collection.food');
+        if (activeTab === 'fifm') return t('photography.collection.fifm');
         return t('photography.page_title');
     };
 
@@ -375,6 +419,26 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Food</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* FIFM Collection Card */}
+                        <AnimatedSection delay={0.8}>
+                            <div
+                                onClick={() => { setActiveTab('fifm'); setSelectedIndex(null); }}
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                            >
+                                <img
+                                    src={fifmPhotos[9]}
+                                    alt="FIFM Collection Preview"
+                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">FIFM</h2>
                                     <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
