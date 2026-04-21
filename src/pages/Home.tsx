@@ -242,7 +242,7 @@ export default function Home() {
                             description={t('services.photography.desc')}
                             icon={<Camera className="w-10 h-10" />}
                             linkTo="/portfolio/photography"
-                            image="/studio_hero.png"
+                            image="/service_photography.png"
                             delay={0.2}
                         />
                         <ServiceCard
