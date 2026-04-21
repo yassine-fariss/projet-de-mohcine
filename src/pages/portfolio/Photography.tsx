@@ -493,12 +493,12 @@ export default function Photography() {
                             >
                                 {/* Ambient Blurred Background to fill margins */}
                                 <img
-                                    src={mawazinPhotos[14]}
+                                    src={mawazinPhotos[4]}
                                     alt=""
                                     className="absolute inset-0 w-full h-full object-cover blur-[30px] opacity-70 scale-125 transition-transform duration-1000 group-hover:scale-150"
                                 />
                                 <img
-                                    src={mawazinPhotos[14]}
+                                    src={mawazinPhotos[4]}
                                     alt="Mawazin Collection Preview"
                                     className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-1000 group-hover:scale-105 z-10"
                                 />
