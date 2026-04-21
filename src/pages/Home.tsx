@@ -180,7 +180,7 @@ export default function Home() {
                     <AnimatedSection delay={0.2}>
                         <div className="inline-block w-full">
                             <h1 className="flex flex-col items-center gap-4 mb-8">
-                                <span className="font-brand text-4xl md:text-6xl lg:text-8xl font-bold text-brand-gold luxury-text-glow luxury-text-glow-white uppercase tracking-[0.2em]">
+                                <span className="font-brand text-4xl md:text-6xl lg:text-8xl font-bold text-white luxury-text-glow-white uppercase tracking-[0.2em] drop-shadow-2xl">
                                     {t('hero.title1')}
                                 </span>
                                 <span className="font-luxury text-xl md:text-3xl lg:text-4xl text-white italic font-medium tracking-premium mt-2">
@@ -200,7 +200,7 @@ export default function Home() {
 
                     <AnimatedSection delay={0.6}>
                         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                            <Link to="/portfolio/videography">
+                            <Link to="/portfolio/photography">
                                 <Button variant="primary" className="px-10 py-6 tracking-widest uppercase text-xs">
                                     {t('hero.btn_portfolio')}
                                 </Button>
@@ -234,7 +234,7 @@ export default function Home() {
                             description={t('services.videography.desc')}
                             icon={<Video className="w-10 h-10" />}
                             linkTo="/portfolio/videography"
-                            image="/service_videographie.png"
+                            image="/service_videography.png"
                             delay={0.1}
                         />
                         <ServiceCard
@@ -242,7 +242,7 @@ export default function Home() {
                             description={t('services.photography.desc')}
                             icon={<Camera className="w-10 h-10" />}
                             linkTo="/portfolio/photography"
-                            image="/service_photographie.png"
+                            image="/service_photography_branded.png"
                             delay={0.2}
                         />
                         <ServiceCard
@@ -250,7 +250,7 @@ export default function Home() {
                             description={t('services.montage.desc')}
                             icon={<Scissors className="w-10 h-10" />}
                             linkTo="/portfolio/montage-reels"
-                            image="/service_montage.png"
+                            image="/service_montage_reels.png"
                             delay={0.3}
                         />
                         <ServiceCard

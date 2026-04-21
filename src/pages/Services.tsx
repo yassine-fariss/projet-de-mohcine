@@ -12,21 +12,21 @@ export default function Services() {
             title: t('services.videography.title'),
             desc: t('services.videography.desc'),
             icon: <Video className="w-8 h-8 text-brand-gold" />,
-            image: '/service_videographie.png',
+            image: '/service_videography.png',
         },
         {
             id: 'photography',
             title: t('services.photography.title'),
             desc: t('services.photography.desc'),
             icon: <Camera className="w-8 h-8 text-brand-gold" />,
-            image: '/service_photographie.png',
+            image: '/service_photography_branded.png',
         },
         {
             id: 'montage',
             title: t('services.montage.title'),
             desc: t('services.montage.desc'),
             icon: <Scissors className="w-8 h-8 text-brand-gold" />,
-            image: '/service_montage.png',
+            image: '/service_montage_reels.png',
         }
     ];
 
