@@ -516,7 +516,9 @@ export default function Photography() {
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">FIFM</h2>
                                     <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
-                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0 max-w-xs leading-relaxed">
+                                        {t('photography.collection.fifm_slogan')}
+                                    </p>
                                 </div>
                             </div>
                         </AnimatedSection>
