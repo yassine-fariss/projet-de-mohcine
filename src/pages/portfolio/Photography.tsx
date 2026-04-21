@@ -47,12 +47,19 @@ const weddingPhotos = [
 ];
 
 const commercialPhotos = [
-    '/Photo/commercial photos/finale.jpg.jpeg',
+    '/Photo/commercial photos/DSC_0102-Edit.jpg',
+    '/Photo/commercial photos/DSC_0117-Edit.jpg',
+    '/Photo/commercial photos/DSC_0129-Edit.jpg',
+    '/Photo/commercial photos/DSC_0130-Edit-Edit-2.jpg',
     '/Photo/commercial photos/GH801057-Panorama.JPG.jpeg',
     '/Photo/commercial photos/GH801095-Panorama.JPG.jpeg',
     '/Photo/commercial photos/GH801109-Panorama.JPG.jpeg',
     '/Photo/commercial photos/GH801123.JPG.jpeg',
-    '/Photo/commercial photos/ghaziphotoghraphie06.jpg.jpeg',
+    '/Photo/commercial photos/finale.jpg.jpeg',
+    '/Photo/commercial photos/tableau mockup 2.jpg',
+    '/Photo/commercial photos/tableau mockup 3.jpg',
+    '/Photo/commercial photos/tableau mockup 4.jpg',
+    '/Photo/commercial photos/tableau mockup.jpg',
 ];
 
 const portraitPhotos = [
