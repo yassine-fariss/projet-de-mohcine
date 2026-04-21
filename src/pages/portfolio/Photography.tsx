@@ -156,6 +156,44 @@ const fifmPhotos = [
     '/FIFM/IMG-20251207-WA0019.jpg',
 ];
 
+const mawazinPhotos = [
+    '/Mawazin/DSC03105.jpg',
+    '/Mawazin/DSC03123.jpg',
+    '/Mawazin/DSC03185.jpg',
+    '/Mawazin/DSC03191.jpg',
+    '/Mawazin/DSC03193.jpg',
+    '/Mawazin/DSC03202.jpg',
+    '/Mawazin/DSC06156.jpg',
+    '/Mawazin/DSC06157.jpg',
+    '/Mawazin/DSC06162.jpg',
+    '/Mawazin/DSC06171.jpg',
+    '/Mawazin/DSC06191.jpg',
+    '/Mawazin/DSC06209.jpg',
+    '/Mawazin/DSC06223.jpg',
+    '/Mawazin/DSC06226.jpg',
+    '/Mawazin/DSC06231.jpg',
+    '/Mawazin/DSC06237.jpg',
+    '/Mawazin/DSC06400.jpg',
+    '/Mawazin/DSC06402.jpg',
+    '/Mawazin/DSC06407.jpg',
+    '/Mawazin/DSC06434.jpg',
+    '/Mawazin/DSC06438.jpg',
+    '/Mawazin/DSC06440.jpg',
+    '/Mawazin/DSC06454.jpg',
+    '/Mawazin/DSC06456.jpg',
+    '/Mawazin/DSC06472.jpg',
+    '/Mawazin/DSC07244.jpg',
+    '/Mawazin/DSC07247.jpg',
+    '/Mawazin/DSC07256.jpg',
+    '/Mawazin/DSC07260.jpg',
+    '/Mawazin/DSC07270.jpg',
+    '/Mawazin/DSC07271.jpg',
+    '/Mawazin/DSC07275.jpg',
+    '/Mawazin/DSC07277.jpg',
+    '/Mawazin/DSC07296.jpg',
+    '/Mawazin/DSC07300.jpg',
+];
+
 function PhotoCard({ photo, index, onClick }: { photo: string, index: number, onClick: () => void }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -197,7 +235,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 export default function Photography() {
     const { t } = useTranslation();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | 'food' | 'fifm' | null>(null);
+    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'school' | 'food' | 'fifm' | 'mawazin' | null>(null);
 
     const getPhotos = () => {
         if (activeTab === 'wedding') return weddingPhotos;
@@ -208,6 +246,7 @@ export default function Photography() {
         if (activeTab === 'school') return schoolPhotos;
         if (activeTab === 'food') return foodPhotos;
         if (activeTab === 'fifm') return fifmPhotos;
+        if (activeTab === 'mawazin') return mawazinPhotos;
         return [];
     };
 
@@ -235,6 +274,7 @@ export default function Photography() {
         if (activeTab === 'school') return t('photography.collection.school');
         if (activeTab === 'food') return t('photography.collection.food');
         if (activeTab === 'fifm') return t('photography.collection.fifm');
+        if (activeTab === 'mawazin') return t('photography.collection.mawazin');
         return t('photography.page_title');
     };
 
@@ -439,6 +479,26 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">FIFM</h2>
+                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Mawazin Collection Card */}
+                        <AnimatedSection delay={0.9}>
+                            <div
+                                onClick={() => { setActiveTab('mawazin'); setSelectedIndex(null); }}
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                            >
+                                <img
+                                    src={mawazinPhotos[14]}
+                                    alt="Mawazin Collection Preview"
+                                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Mawazin</h2>
                                     <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
