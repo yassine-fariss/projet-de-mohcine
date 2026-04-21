@@ -19,7 +19,7 @@ export default function Services() {
             title: t('services.photography.title'),
             desc: t('services.photography.desc'),
             icon: <Camera className="w-8 h-8 text-brand-gold" />,
-            image: '/service_photography_branded.png',
+            image: '/service_photography_studio.png',
         },
         {
             id: 'montage',
