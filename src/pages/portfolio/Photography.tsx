@@ -44,6 +44,13 @@ const weddingPhotos = [
 ];
 
 const commercialPhotos = [
+    '/Photo/commercial photos/1.jpg.jpeg',
+    '/Photo/commercial photos/2.jpg.jpeg',
+    '/Photo/commercial photos/3.jpg.jpeg',
+    '/Photo/commercial photos/4.jpg.jpeg',
+    '/Photo/commercial photos/5.jpg.jpeg',
+    '/Photo/commercial photos/6.jpg.jpeg',
+    '/Photo/commercial photos/7.jpg.jpeg',
     '/Photo/commercial photos/DSC_0102-Edit.jpg',
     '/Photo/commercial photos/DSC_0117-Edit.jpg',
     '/Photo/commercial photos/DSC_0129-Edit.jpg',
