@@ -60,10 +60,6 @@ const commercialPhotos = [
     '/Photo/commercial photos/GH801109-Panorama.JPG.jpeg',
     '/Photo/commercial photos/GH801123.JPG.jpeg',
     '/Photo/commercial photos/finale.jpg.jpeg',
-    '/Photo/commercial photos/tableau mockup 2.jpg',
-    '/Photo/commercial photos/tableau mockup 3.jpg',
-    '/Photo/commercial photos/tableau mockup 4.jpg',
-    '/Photo/commercial photos/tableau mockup.jpg',
 ];
 
 const portraitPhotos = [
