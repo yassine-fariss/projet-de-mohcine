@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
 import AnimatedSection from '../../components/AnimatedSection';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEO from '../../components/SEO';
@@ -337,8 +338,18 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
 
 export default function Photography() {
     const { t } = useTranslation();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const activeTab = searchParams.get('collection') as 'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'food' | 'fifm' | 'mawazin' | null;
+
+    const setActiveTab = (tab: 'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'food' | 'fifm' | 'mawazin' | null) => {
+        if (tab) {
+            setSearchParams({ collection: tab });
+        } else {
+            setSearchParams({});
+        }
+    };
+
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState<'wedding' | 'commercial' | 'portrait' | 'caftan' | 'jewelry' | 'food' | 'fifm' | 'mawazin' | null>(null);
 
     const getPhotos = () => {
         if (activeTab === 'wedding') return weddingPhotos;
