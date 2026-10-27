@@ -3,12 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe, ChevronDown, Video, Camera, Scissors, Clapperboard } from 'lucide-react';
 import logoUrl from '../assets/logo.png';
+import logoDarkUrl from '../assets/logo_dark.png';
+import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 
 
 const Navbar = () => {
     const { t, i18n } = useTranslation();
+    const { theme } = useTheme();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,20 +57,23 @@ const Navbar = () => {
     };
 
     const isPortfolioActive = location.pathname.startsWith('/portfolio');
+    const isLightMode = theme === 'light';
+    const isDarkHeader = location.pathname === '/' && !isScrolled && !isMobileMenuOpen;
+    const currentLogo = isLightMode && !isDarkHeader ? logoDarkUrl : logoUrl;
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-background/80 backdrop-blur-xl py-3 shadow-lg border-b border-border-subtle' : 'bg-transparent py-6'
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen ? 'bg-background/80 backdrop-blur-xl py-3 shadow-lg border-b border-border-subtle' : 'bg-transparent py-6'
                 }`}
         >
             <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/" className="flex items-center group">
-                        <img
-                            src={logoUrl}
-                            alt="Revo Productions"
-                            className={`h-9 md:h-16 w-auto object-contain transition-all duration-700 group-hover:scale-105`}
-                        />
+                    <img
+                        src={currentLogo}
+                        alt="Revo Productions"
+                        className="h-9 md:h-16 w-auto object-contain transition-all duration-700 group-hover:scale-105"
+                    />
                 </Link>
 
                 {/* Desktop Menu */}

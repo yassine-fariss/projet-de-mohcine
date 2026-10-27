@@ -13,7 +13,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="md:col-span-1">
                         <Link to="/" className="block mb-4">
-                            <img src={logoUrl} alt="Revo Productions" className="h-16 md:h-24 w-auto mix-blend-screen object-contain -ml-4" />
+                            <img src={logoUrl} alt="Revo Productions" className="h-16 md:h-24 w-auto object-contain -ml-4" />
                         </Link>
                         <p className="text-white/60 text-sm leading-relaxed">
                             Production Vidéo & Création Digitale de haute qualité à Casablanca.
