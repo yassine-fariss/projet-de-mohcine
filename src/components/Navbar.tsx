@@ -78,10 +78,10 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-10">
-                    <Link to="/" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-gold transition-all duration-300">
+                    <Link to="/" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-red transition-all duration-300">
                         {t('nav.home')}
                     </Link>
-                    <Link to="/services" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-gold transition-all duration-300">
+                    <Link to="/services" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-red transition-all duration-300">
                         {t('nav.services')}
                     </Link>
 
@@ -89,7 +89,7 @@ const Navbar = () => {
                     <div className="relative" ref={portfolioRef}>
                         <button
                             onClick={() => setIsPortfolioOpen((v) => !v)}
-                            className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-gold transition-all duration-300 ${isPortfolioActive ? 'text-brand-gold' : 'text-foreground'
+                            className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-red transition-all duration-300 ${isPortfolioActive ? 'text-brand-red' : 'text-foreground'
                                 }`}
                         >
                             {t('nav.portfolio')}
@@ -103,18 +103,18 @@ const Navbar = () => {
                             className={`absolute top-full left-1/2 -translate-x-1/2 mt-6 w-60 bg-background/95 border border-border-subtle backdrop-blur-xl shadow-2xl transition-all duration-500 origin-top rounded-xl overflow-hidden ${isPortfolioOpen ? 'opacity-100 scale-y-100 pointer-events-auto translate-y-0' : 'opacity-0 scale-y-95 pointer-events-none -translate-y-2'
                                 }`}
                         >
-                            {/* Gold top accent */}
-                            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-gold/50 to-transparent" />
+                            {/* Red top accent */}
+                            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-red/50 to-transparent" />
 
                             <div className="py-2">
                                 {portfolioItems.map((item) => (
                                     <Link
                                         key={item.to}
                                         to={item.to}
-                                        className={`flex items-center gap-4 px-6 py-4 text-[10px] uppercase tracking-widest hover:bg-brand-gold/5 hover:text-brand-gold transition-all duration-300 group ${location.pathname === item.to ? 'text-brand-gold bg-brand-gold/5' : 'text-foreground/70'
+                                        className={`flex items-center gap-4 px-6 py-4 text-[10px] uppercase tracking-widest hover:bg-brand-red/5 hover:text-brand-red transition-all duration-300 group ${location.pathname === item.to ? 'text-brand-red bg-brand-red/5' : 'text-foreground/70'
                                             }`}
                                     >
-                                        <span className="text-brand-gold/40 group-hover:text-brand-gold transition-colors transform group-hover:scale-110 duration-300">
+                                        <span className="text-brand-red/40 group-hover:text-brand-red transition-colors transform group-hover:scale-110 duration-300">
                                             {item.icon}
                                         </span>
                                         {item.label}
@@ -124,23 +124,23 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <Link to="/about" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-gold transition-all duration-300">
+                    <Link to="/about" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-red transition-all duration-300">
                         {t('nav.about')}
                     </Link>
-                    <Link to="/contact" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-gold transition-all duration-300">
+                    <Link to="/contact" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:text-brand-red transition-all duration-300">
                         {t('nav.contact')}
                     </Link>
 
                     {/* Language Switcher */}
                     <div className="relative group pl-4 border-l border-border-subtle">
-                        <button className="flex items-center space-x-2 text-[10px] tracking-widest font-bold hover:text-brand-gold transition-all duration-300">
+                        <button className="flex items-center space-x-2 text-[10px] tracking-widest font-bold hover:text-brand-red transition-all duration-300">
                             <Globe className="w-3.5 h-3.5" />
                             <span className="uppercase">{i18n.language}</span>
                         </button>
                         <div className="absolute right-0 mt-4 w-28 bg-background/95 border border-border-subtle rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 p-2">
-                            <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-gold/10 hover:text-brand-gold rounded-lg transition-colors">FRANÇAIS</button>
-                            <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-gold/10 hover:text-brand-gold rounded-lg transition-colors">ENGLISH</button>
-                            <button onClick={() => changeLanguage('ar')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-gold/10 hover:text-brand-gold rounded-lg transition-colors">ARABE</button>
+                            <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-red/10 hover:text-brand-red rounded-lg transition-colors">FRANÇAIS</button>
+                            <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-red/10 hover:text-brand-red rounded-lg transition-colors">ENGLISH</button>
+                            <button onClick={() => changeLanguage('ar')} className="block w-full text-left px-4 py-2.5 text-[10px] tracking-widest hover:bg-brand-red/10 hover:text-brand-red rounded-lg transition-colors">ARABE</button>
                         </div>
                     </div>
 
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4 md:hidden">
                     <ThemeToggle />
                     <button
-                        className="text-foreground hover:text-brand-gold"
+                        className="text-foreground hover:text-brand-red"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -164,10 +164,10 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-background/98 backdrop-blur-2xl border-t border-border-subtle py-8 px-8 flex flex-col space-y-6 shadow-2xl h-[calc(100vh-64px)] overflow-y-auto">
-                    <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-gold transition-colors">
+                    <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-red transition-colors">
                         {t('nav.home')}
                     </Link>
-                    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-gold transition-colors">
+                    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-red transition-colors">
                         {t('nav.services')}
                     </Link>
 
@@ -175,7 +175,7 @@ const Navbar = () => {
                     <div>
                         <button
                             onClick={() => setIsMobilePortfolioOpen((v) => !v)}
-                            className={`flex items-center justify-between w-full text-xl uppercase tracking-[0.2em] font-light hover:text-brand-gold transition-colors ${isPortfolioActive ? 'text-brand-gold' : ''
+                            className={`flex items-center justify-between w-full text-xl uppercase tracking-[0.2em] font-light hover:text-brand-red transition-colors ${isPortfolioActive ? 'text-brand-red' : ''
                                 }`}
                         >
                             {t('nav.portfolio')}
@@ -185,16 +185,16 @@ const Navbar = () => {
                         </button>
 
                         {isMobilePortfolioOpen && (
-                            <div className="mt-4 ml-4 flex flex-col space-y-4 border-l border-brand-gold/30 pl-6">
+                            <div className="mt-4 ml-4 flex flex-col space-y-4 border-l border-brand-red/30 pl-6">
                                 {portfolioItems.map((item) => (
                                     <Link
                                         key={item.to}
                                         to={item.to}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`flex items-center gap-3 text-sm tracking-widest uppercase hover:text-brand-gold transition-colors ${location.pathname === item.to ? 'text-brand-gold' : 'text-foreground/60'
+                                        className={`flex items-center gap-3 text-sm tracking-widest uppercase hover:text-brand-red transition-colors ${location.pathname === item.to ? 'text-brand-red' : 'text-foreground/60'
                                             }`}
                                     >
-                                        <span className="text-brand-gold/50">{item.icon}</span>
+                                        <span className="text-brand-red/50">{item.icon}</span>
                                         {item.label}
                                     </Link>
                                 ))}
@@ -202,17 +202,17 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-gold transition-colors">
+                    <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-red transition-colors">
                         {t('nav.about')}
                     </Link>
-                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-gold transition-colors">
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl uppercase tracking-[0.2em] font-light hover:text-brand-red transition-colors">
                         {t('nav.contact')}
                     </Link>
 
                     <div className="flex space-x-4 pt-4 border-t border-white/10">
-                        <button onClick={() => { changeLanguage('fr'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'fr' ? 'text-brand-gold' : 'text-foreground'}`}>FR</button>
-                        <button onClick={() => { changeLanguage('en'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'en' ? 'text-brand-gold' : 'text-foreground'}`}>EN</button>
-                        <button onClick={() => { changeLanguage('ar'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'ar' ? 'text-brand-gold' : 'text-foreground'}`}>AR</button>
+                        <button onClick={() => { changeLanguage('fr'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'fr' ? 'text-brand-red' : 'text-foreground'}`}>FR</button>
+                        <button onClick={() => { changeLanguage('en'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'en' ? 'text-brand-red' : 'text-foreground'}`}>EN</button>
+                        <button onClick={() => { changeLanguage('ar'); setIsMobileMenuOpen(false); }} className={`uppercase ${i18n.language === 'ar' ? 'text-brand-red' : 'text-foreground'}`}>AR</button>
                     </div>
                 </div>
             )}

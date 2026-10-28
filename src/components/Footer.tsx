@@ -24,10 +24,10 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Liens Rapides</h4>
                         <ul className="space-y-3">
-                            <li><Link to="/" className="text-white/60 hover:text-brand-gold text-sm transition-colors">{t('nav.home')}</Link></li>
-                            <li><Link to="/services" className="text-white/60 hover:text-brand-gold text-sm transition-colors">{t('nav.services')}</Link></li>
-                            <li><Link to="/about" className="text-white/60 hover:text-brand-gold text-sm transition-colors">{t('nav.about')}</Link></li>
-                            <li><Link to="/contact" className="text-white/60 hover:text-brand-gold text-sm transition-colors">{t('nav.contact')}</Link></li>
+                            <li><Link to="/" className="text-white/60 hover:text-brand-red text-sm transition-colors">{t('nav.home')}</Link></li>
+                            <li><Link to="/services" className="text-white/60 hover:text-brand-red text-sm transition-colors">{t('nav.services')}</Link></li>
+                            <li><Link to="/about" className="text-white/60 hover:text-brand-red text-sm transition-colors">{t('nav.about')}</Link></li>
+                            <li><Link to="/contact" className="text-white/60 hover:text-brand-red text-sm transition-colors">{t('nav.contact')}</Link></li>
                         </ul>
                     </div>
 
@@ -35,9 +35,9 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Nos Services</h4>
                         <ul className="space-y-3">
-                            <li><Link to="/portfolio/videography" className="text-white/60 hover:text-brand-gold text-sm transition-colors">Vidéographie</Link></li>
-                            <li><Link to="/portfolio/photography" className="text-white/60 hover:text-brand-gold text-sm transition-colors">Photographie</Link></li>
-                            <li><Link to="/portfolio/montage-reels" className="text-white/60 hover:text-brand-gold text-sm transition-colors">Montage & Reels</Link></li>
+                            <li><Link to="/portfolio/videography" className="text-white/60 hover:text-brand-red text-sm transition-colors">Vidéographie</Link></li>
+                            <li><Link to="/portfolio/photography" className="text-white/60 hover:text-brand-red text-sm transition-colors">Photographie</Link></li>
+                            <li><Link to="/portfolio/montage-reels" className="text-white/60 hover:text-brand-red text-sm transition-colors">Montage & Reels</Link></li>
                         </ul>
                     </div>
 
@@ -54,7 +54,7 @@ const Footer = () => {
                                 href="https://www.instagram.com/revo__productions?igsh=ZDRvbml4c2M4ajZv"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold transition-colors"
+                                className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-red-dark transition-colors"
                             >
                                 <Instagram className="w-4 h-4" />
                             </a>

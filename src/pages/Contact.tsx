@@ -32,7 +32,7 @@ export default function Contact() {
                 <AnimatedSection>
                     <div className="max-w-3xl">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{t('contact.title')}</h1>
-                        <div className="w-24 h-1 bg-brand-gold mb-6" />
+                        <div className="w-24 h-1 bg-brand-red mb-6" />
                         <p className="text-xl text-white/60 leading-relaxed">
                             {t('contact.desc')}
                         </p>
@@ -47,12 +47,12 @@ export default function Contact() {
                     {/* Contact Information (Left) */}
                     <div className="w-full lg:w-1/3 space-y-12">
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-[#050505] p-8 border border-white/10 hover:border-brand-gold/50 transition-colors h-full">
+                            <div className="bg-[#050505] p-8 border border-white/10 hover:border-brand-red/50 transition-colors h-full">
                                 <h3 className="text-2xl font-bold text-white mb-8">{t('contact.info_title')}</h3>
 
                                 <div className="space-y-8">
                                     <div className="flex items-start tracking-wide">
-                                        <Phone className="w-6 h-6 text-brand-gold mr-4 mt-1" />
+                                        <Phone className="w-6 h-6 text-brand-red mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.phone')}</h4>
                                             <p className="text-white text-lg">0625254219</p>
@@ -60,7 +60,7 @@ export default function Contact() {
                                     </div>
 
                                     <div className="flex items-start tracking-wide">
-                                        <Mail className="w-6 h-6 text-brand-gold mr-4 mt-1" />
+                                        <Mail className="w-6 h-6 text-brand-red mr-4 mt-1" />
                                         <div className="break-all">
                                             <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.email')}</h4>
                                             <p className="text-white text-lg">Revoproductionsteam@gmail.com</p>
@@ -68,7 +68,7 @@ export default function Contact() {
                                     </div>
 
                                     <div className="flex items-start tracking-wide">
-                                        <MapPin className="w-6 h-6 text-brand-gold mr-4 mt-1" />
+                                        <MapPin className="w-6 h-6 text-brand-red mr-4 mt-1" />
                                         <div>
                                             <h4 className="text-white/40 text-sm uppercase mb-1">{t('contact.location')}</h4>
                                             <p className="text-white text-lg">{t('why_us.support.location_val', 'Casablanca, Maroc')}</p>
@@ -106,7 +106,7 @@ export default function Contact() {
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors"
+                                            className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-red transition-colors"
                                             placeholder={t('contact.form.name_placeholder')}
                                         />
                                     </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors"
+                                            className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-red transition-colors"
                                             placeholder={t('contact.form.email_placeholder')}
                                         />
                                     </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         rows={6}
-                                        className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors resize-none flex-grow"
+                                        className="bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-brand-red transition-colors resize-none flex-grow"
                                         placeholder={t('contact.form.message_placeholder')}
                                     />
                                 </div>

@@ -81,7 +81,7 @@ function VideoCard({ video, index }: { video: any; index: number }) {
     return (
         <AnimatedSection delay={index * 0.15}>
             <div
-                className="group relative overflow-hidden bg-background border border-border-subtle transition-all duration-700 hover:border-brand-gold/40 luxury-shadow-sm rounded-xl"
+                className="group relative overflow-hidden bg-background border border-border-subtle transition-all duration-700 hover:border-brand-red/40 luxury-shadow-sm rounded-xl"
                 style={{ aspectRatio: '16 / 9' }}
             >
                 {/* Native HTML5 Video */}
@@ -108,21 +108,21 @@ function VideoCard({ video, index }: { video: any; index: number }) {
                         )}
 
                         {/* Luxury play button */}
-                        <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-full border border-brand-gold bg-black/30 backdrop-blur-md flex items-center justify-center mb-4 md:mb-6 transform transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-gold/10 group-hover:shadow-[0_0_20px_rgba(198,167,94,0.3)]">
-                            <Play className="w-6 h-6 md:w-8 md:h-8 text-brand-gold ml-1 fill-brand-gold/20" />
+                        <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 rounded-full border border-brand-red bg-black/30 backdrop-blur-md flex items-center justify-center mb-4 md:mb-6 transform transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-red/10 group-hover:shadow-[0_0_20px_rgba(237,28,36,0.3)]">
+                            <Play className="w-6 h-6 md:w-8 md:h-8 text-brand-red ml-1 fill-brand-red/20" />
                         </div>
 
                         {/* Title & category */}
                         <div className="text-center z-10 p-4 md:p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <h3 className="text-white font-bold text-lg md:text-2xl leading-tight mb-2 tracking-wide uppercase drop-shadow-2xl">{video.title}</h3>
-                            <div className="w-8 h-[1px] bg-brand-gold mx-auto mb-2 transition-all duration-500 group-hover:w-16" />
+                            <div className="w-8 h-[1px] bg-brand-red mx-auto mb-2 transition-all duration-500 group-hover:w-16" />
                             <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium">{video.category}</p>
                         </div>
                     </div>
                 )}
 
                 {/* Accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20" />
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-red/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20" />
             </div>
         </AnimatedSection>
     );
@@ -144,7 +144,7 @@ export default function Videography() {
                 <AnimatedSection>
                     <div className="max-w-3xl mx-auto md:mx-0">
                         <h1 className="text-3xl md:text-7xl font-bold text-foreground mb-6 uppercase tracking-cinematic">{t('videography.page_title')}</h1>
-                        <div className="w-16 md:w-24 h-[1px] bg-brand-gold mb-8 md:mb-10 mx-auto md:mx-0" />
+                        <div className="w-16 md:w-24 h-[1px] bg-brand-red mb-8 md:mb-10 mx-auto md:mx-0" />
                         <p className="text-lg md:text-xl text-muted leading-relaxed font-light tracking-premium px-4 md:px-0">
                             {t('videography.desc')}
                         </p>

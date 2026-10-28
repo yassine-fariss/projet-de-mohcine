@@ -20,9 +20,9 @@ export default function Button({
     const baseStyles = "relative inline-flex items-center justify-center font-medium tracking-wide transition-all duration-300 overflow-hidden";
 
     const variants = {
-        primary: "bg-brand-gold text-black px-8 py-4 hover:shadow-[0_0_20px_rgba(198,167,94,0.4)] hover:bg-white",
-        outline: "border border-brand-gold text-white px-8 py-4 hover:bg-brand-gold/10",
-        text: "text-white hover:text-brand-gold px-4 py-2"
+        primary: "bg-brand-red text-black px-8 py-4 hover:shadow-[0_0_20px_rgba(237,28,36,0.4)] hover:bg-white",
+        outline: "border border-brand-red text-white px-8 py-4 hover:bg-brand-red/10",
+        text: "text-white hover:text-brand-red px-4 py-2"
     };
 
     return (

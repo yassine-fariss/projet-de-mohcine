@@ -43,9 +43,9 @@ export default function About() {
                 <AnimatedSection>
                     <div className="max-w-4xl mx-auto text-center mt-12 md:mt-24">
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8">
-                            {t('about.hero_1')}<span className="text-brand-gold text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">{t('nav.portfolio')}</span>,<br />{t('about.hero_2')}
+                            {t('about.hero_1')}<span className="text-brand-red text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-red-light">{t('nav.portfolio')}</span>,<br />{t('about.hero_2')}
                         </h1>
-                        <div className="w-24 h-1 bg-brand-gold mx-auto mb-10" />
+                        <div className="w-24 h-1 bg-brand-red mx-auto mb-10" />
                         <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light">
                             {t('about.desc')}
                         </p>
@@ -58,7 +58,7 @@ export default function About() {
                 <AnimatedSection>
                     <div className="mb-16 text-center md:text-left">
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('about.team')}</h2>
-                        <div className="w-24 h-1 bg-brand-gold mx-auto md:mx-0" />
+                        <div className="w-24 h-1 bg-brand-red mx-auto md:mx-0" />
                     </div>
                 </AnimatedSection>
 
@@ -85,13 +85,13 @@ export default function About() {
                                 {/* Dark gradient overlay bottom */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
 
-                                {/* Gold border on hover */}
-                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/50 transition-colors duration-500 z-20" />
+                                {/* Red border on hover */}
+                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-red/50 transition-colors duration-500 z-20" />
 
                                 {/* Name & role */}
                                 <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                     <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
-                                    <p className="text-brand-gold font-medium uppercase tracking-wider text-sm">{member.role}</p>
+                                    <p className="text-brand-red font-medium uppercase tracking-wider text-sm">{member.role}</p>
                                 </div>
                             </a>
                         </AnimatedSection>

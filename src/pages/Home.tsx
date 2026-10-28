@@ -74,7 +74,7 @@ function HomeVideoCard({ video, index }: { video: any; index: number }) {
     return (
         <AnimatedSection delay={index * 0.15}>
             <div
-                className="group relative overflow-hidden bg-background border border-border-subtle hover:border-[#C6A75E]/60 hover:shadow-[0_0_30px_rgba(198,167,94,0.12)] transition-all duration-300"
+                className="group relative overflow-hidden bg-background border border-border-subtle hover:border-[#ED1C24]/60 hover:shadow-[0_0_30px_rgba(237,28,36,0.12)] transition-all duration-300"
                 style={{ aspectRatio: '16/9' }}
             >
                 <video
@@ -92,16 +92,16 @@ function HomeVideoCard({ video, index }: { video: any; index: number }) {
                         className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-black/50 group-hover:bg-black/30 transition-all duration-300"
                         onClick={handlePlay}
                     >
-                        <div className="w-14 h-14 rounded-full border-2 border-[#C6A75E] bg-background/50 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#C6A75E]/20">
-                            <Play className="w-6 h-6 text-[#C6A75E] ml-0.5" />
+                        <div className="w-14 h-14 rounded-full border-2 border-[#ED1C24] bg-background/50 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#ED1C24]/20">
+                            <Play className="w-6 h-6 text-[#ED1C24] ml-0.5" />
                         </div>
                         <div className="absolute bottom-5 left-5 text-left z-10">
                             <h3 className="text-white font-semibold text-base drop-shadow-lg">{video.title}</h3>
-                            <p className="text-[#C6A75E] text-xs mt-0.5 uppercase tracking-widest">{video.category}</p>
+                            <p className="text-[#ED1C24] text-xs mt-0.5 uppercase tracking-widest">{video.category}</p>
                         </div>
                     </div>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C6A75E]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#ED1C24]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
             </div>
         </AnimatedSection>
     );
@@ -117,7 +117,7 @@ const ProductionCinemaSection = ({ t }: { t: any }) => {
                 <AnimatedSection>
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-widest">{t('production_cinema.title')}</h2>
-                        <div className="w-24 h-1 bg-brand-gold mx-auto mb-6" />
+                        <div className="w-24 h-1 bg-brand-red mx-auto mb-6" />
                         <p className="text-white/60 max-w-2xl mx-auto italic">
                             {t('production_cinema.subtitle')}
                         </p>
@@ -126,8 +126,8 @@ const ProductionCinemaSection = ({ t }: { t: any }) => {
 
                 <AnimatedSection delay={0.2}>
                     <div className="relative aspect-video max-w-5xl mx-auto group">
-                        {/* Gold frame decoration */}
-                        <div className="absolute -inset-4 border border-brand-gold/20 z-0 pointer-events-none" />
+                        {/* Red frame decoration */}
+                        <div className="absolute -inset-4 border border-brand-red/20 z-0 pointer-events-none" />
 
                         <div className="relative w-full h-full overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                             <video
@@ -138,12 +138,12 @@ const ProductionCinemaSection = ({ t }: { t: any }) => {
                             />
 
                             {/* Overlay glow on hover */}
-                            <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            <div className="absolute inset-0 bg-brand-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         </div>
 
                         {/* Cinematic accent lines */}
-                        <div className="absolute -bottom-2 -right-2 w-24 h-24 border-b-2 border-r-2 border-brand-gold/30 pointer-events-none" />
-                        <div className="absolute -top-2 -left-2 w-24 h-24 border-t-2 border-l-2 border-brand-gold/30 pointer-events-none" />
+                        <div className="absolute -bottom-2 -right-2 w-24 h-24 border-b-2 border-r-2 border-brand-red/30 pointer-events-none" />
+                        <div className="absolute -top-2 -left-2 w-24 h-24 border-t-2 border-l-2 border-brand-red/30 pointer-events-none" />
                     </div>
                 </AnimatedSection>
             </div>
@@ -187,8 +187,8 @@ export default function Home() {
                                     {t('hero.title2')}
                                 </span>
                             </h1>
-                            {/* Elegant Gold Accent Line */}
-                            <div className="w-16 md:w-48 h-[1px] bg-brand-gold/60 mx-auto mb-10 shadow-[0_0_15px_rgba(198,167,94,0.5)]" />
+                            {/* Elegant Red Accent Line */}
+                            <div className="w-16 md:w-48 h-[1px] bg-brand-red/60 mx-auto mb-10 shadow-[0_0_15px_rgba(237,28,36,0.5)]" />
                         </div>
                     </AnimatedSection>
 
@@ -206,7 +206,7 @@ export default function Home() {
                                 </Button>
                             </Link>
                             <Link to="/contact">
-                                <Button variant="outline" className="px-10 py-6 tracking-widest uppercase text-xs border-white/20 hover:border-brand-gold shadow-[0_10px_40px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_-5px_rgba(255,255,255,0.4)]">
+                                <Button variant="outline" className="px-10 py-6 tracking-widest uppercase text-xs border-white/20 hover:border-brand-red shadow-[0_10px_40px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_-5px_rgba(255,255,255,0.4)]">
                                     {t('hero.btn_contact')}
                                 </Button>
                             </Link>
@@ -224,7 +224,7 @@ export default function Home() {
                     <AnimatedSection>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h2>
-                            <div className="w-24 h-1 bg-brand-gold mx-auto" />
+                            <div className="w-24 h-1 bg-brand-red mx-auto" />
                         </div>
                     </AnimatedSection>
 
@@ -272,9 +272,9 @@ export default function Home() {
                         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                             <div>
                                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('portfolio.latest')}</h2>
-                                <div className="w-24 h-1 bg-brand-gold" />
+                                <div className="w-24 h-1 bg-brand-red" />
                             </div>
-                            <Link to="/portfolio/videography" className="hidden md:inline-flex text-brand-gold hover:text-white transition-colors items-center space-x-2">
+                            <Link to="/portfolio/videography" className="hidden md:inline-flex text-brand-red hover:text-white transition-colors items-center space-x-2">
                                 <span>{t('portfolio.view_all')}</span>
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -287,7 +287,7 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="mt-12 text-center md:hidden">
-                        <Link to="/portfolio/videography" className="inline-flex text-brand-gold hover:text-white transition-colors items-center space-x-2">
+                        <Link to="/portfolio/videography" className="inline-flex text-brand-red hover:text-white transition-colors items-center space-x-2">
                             <span>{t('portfolio.view_all')}</span>
                         </Link>
                     </div>
@@ -303,7 +303,7 @@ export default function Home() {
                     <AnimatedSection>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('clients.title')}</h2>
-                            <div className="w-24 h-1 bg-brand-gold mx-auto" />
+                            <div className="w-24 h-1 bg-brand-red mx-auto" />
                         </div>
                     </AnimatedSection>
 
@@ -332,7 +332,7 @@ export default function Home() {
                     <AnimatedSection>
                         <div className="mb-16 text-center md:text-left">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('team.title')}</h2>
-                            <div className="w-24 h-1 bg-brand-gold mx-auto md:mx-0" />
+                            <div className="w-24 h-1 bg-brand-red mx-auto md:mx-0" />
                         </div>
                     </AnimatedSection>
 
@@ -359,13 +359,13 @@ export default function Home() {
                                     {/* Dark gradient overlay bottom */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
 
-                                    {/* Gold border on hover */}
-                                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/50 transition-colors duration-500 z-20" />
+                                    {/* Red border on hover */}
+                                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-brand-red/50 transition-colors duration-500 z-20" />
 
                                     {/* Name & role */}
                                     <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                         <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
-                                        <p className="text-brand-gold font-medium uppercase tracking-wider text-sm">{member.role}</p>
+                                        <p className="text-brand-red font-medium uppercase tracking-wider text-sm">{member.role}</p>
                                     </div>
                                 </a>
                             </AnimatedSection>
@@ -380,7 +380,7 @@ export default function Home() {
                     <AnimatedSection>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t('why_us.title')}</h2>
-                            <div className="w-24 h-1 bg-brand-gold mx-auto" />
+                            <div className="w-24 h-1 bg-brand-red mx-auto" />
                         </div>
                     </AnimatedSection>
 
@@ -391,8 +391,8 @@ export default function Home() {
                             { title: t('why_us.support.title'), desc: t('why_us.support.desc') }
                         ].map((feature, i) => (
                             <AnimatedSection key={i} delay={0.1 * i} className="flex flex-col items-center">
-                                <div className="w-16 h-16 rounded-full border border-brand-gold flex items-center justify-center mb-6">
-                                    <CheckCircle className="w-8 h-8 text-brand-gold" />
+                                <div className="w-16 h-16 rounded-full border border-brand-red flex items-center justify-center mb-6">
+                                    <CheckCircle className="w-8 h-8 text-brand-red" />
                                 </div>
                                 <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
                                 <p className="text-white/60 leading-relaxed">{feature.desc}</p>

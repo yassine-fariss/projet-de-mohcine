@@ -304,14 +304,14 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
     return (
         <AnimatedSection delay={index * 0.05}>
             <div
-                className={`group relative cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-700 break-inside-avoid bg-background mb-4 rounded-xl luxury-shadow-sm ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
+                className={`group relative cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-700 break-inside-avoid bg-background mb-4 rounded-xl luxury-shadow-sm ${!isLoaded ? 'animate-pulse min-h-[300px]' : ''
                     }`}
                 onClick={onClick}
             >
                 {/* Loader Spinner (Subtle) */}
                 {!isLoaded && (
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-8 h-8 border border-brand-gold/20 border-t-brand-gold rounded-full animate-spin" />
+                        <div className="w-8 h-8 border border-brand-red/20 border-t-brand-red rounded-full animate-spin" />
                     </div>
                 )}
 
@@ -327,7 +327,7 @@ function PhotoCard({ photo, index, onClick }: { photo: string, index: number, on
                 {/* Cinematic Overlay */}
                 <div className={`absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity z-10 duration-500 ${isLoaded ? '' : 'hidden'}`} />
                 <div className={`absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isLoaded ? '' : 'hidden'}`}>
-                    <div className="w-16 h-16 rounded-full border border-brand-gold/50 text-brand-gold flex items-center justify-center bg-black/30 backdrop-blur-md transform scale-90 group-hover:scale-100 transition-all duration-500">
+                    <div className="w-16 h-16 rounded-full border border-brand-red/50 text-brand-red flex items-center justify-center bg-black/30 backdrop-blur-md transform scale-90 group-hover:scale-100 transition-all duration-500">
                         <Maximize2 className="w-6 h-6" />
                     </div>
                 </div>
@@ -404,7 +404,7 @@ export default function Photography() {
                         <h1 className="text-3xl md:text-7xl font-bold text-foreground mb-6 uppercase tracking-cinematic">
                             {getTitle()}
                         </h1>
-                        <div className="w-16 md:w-24 h-[1px] bg-brand-gold mb-8 md:mb-10 mx-auto md:mx-0" />
+                        <div className="w-16 md:w-24 h-[1px] bg-brand-red mb-8 md:mb-10 mx-auto md:mx-0" />
                         <p className="text-lg md:text-xl text-muted leading-relaxed font-light tracking-premium px-4 md:px-0">
                             {t('photography.desc')}
                         </p>
@@ -418,7 +418,7 @@ export default function Photography() {
                     <AnimatedSection delay={0.1}>
                         <button
                             onClick={() => setActiveTab(null)}
-                            className="inline-flex items-center space-x-2 text-brand-gold hover:text-white transition-colors group"
+                            className="inline-flex items-center space-x-2 text-brand-red hover:text-white transition-colors group"
                         >
                             <ChevronLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
                             <span className="font-bold uppercase tracking-widest text-sm">{t('photography.back')}</span>
@@ -435,7 +435,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.1}>
                             <div
                                 onClick={() => { setActiveTab('wedding'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={weddingPhotos[0]}
@@ -445,7 +445,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Wedding</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -455,7 +455,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.2}>
                             <div
                                 onClick={() => { setActiveTab('portrait'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={portraitPhotos[0]}
@@ -465,7 +465,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Portrait</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -475,7 +475,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.3}>
                             <div
                                 onClick={() => { setActiveTab('commercial'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={commercialPhotos[0]}
@@ -485,7 +485,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Commercial</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -495,7 +495,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.4}>
                             <div
                                 onClick={() => { setActiveTab('caftan'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src="/caftan/DSC02992_result.jpg"
@@ -505,7 +505,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Caftan</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -515,7 +515,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.5}>
                             <div
                                 onClick={() => { setActiveTab('jewelry'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={jewelryPhotos[2]}
@@ -525,7 +525,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Jewelry</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -535,7 +535,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.7}>
                             <div
                                 onClick={() => { setActiveTab('food'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={foodPhotos[2]}
@@ -545,7 +545,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Food</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -555,7 +555,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.8}>
                             <div
                                 onClick={() => { setActiveTab('fifm'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 <img
                                     src={fifmPhotos[25]}
@@ -565,7 +565,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">FIFM</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.2em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0 max-w-xs leading-relaxed">
                                         {t('photography.collection.fifm_slogan')}
                                     </p>
@@ -577,7 +577,7 @@ export default function Photography() {
                         <AnimatedSection delay={0.9}>
                             <div
                                 onClick={() => { setActiveTab('mawazin'); setSelectedIndex(null); }}
-                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-gold/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
+                                className="group relative aspect-[4/5] cursor-pointer overflow-hidden border border-border-subtle hover:border-brand-red/40 transition-all duration-1000 rounded-2xl bg-background luxury-shadow-sm"
                             >
                                 {/* Ambient Blurred Background to fill margins */}
                                 <img
@@ -593,7 +593,7 @@ export default function Photography() {
                                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700 z-20" />
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-30">
                                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-cinematic uppercase luxury-text-glow">Mawazin</h2>
-                                    <div className="w-8 h-[1px] bg-brand-gold transition-all duration-700 group-hover:w-20" />
+                                    <div className="w-8 h-[1px] bg-brand-red transition-all duration-700 group-hover:w-20" />
                                     <p className="mt-6 text-white/50 text-xs uppercase tracking-[0.3em] font-medium opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">{t('photography.explore')}</p>
                                 </div>
                             </div>
@@ -634,7 +634,7 @@ export default function Photography() {
 
                     {/* Prev */}
                     <button
-                        className="absolute left-4 md:left-8 text-white/60 hover:text-brand-gold transition-colors bg-black/50 rounded-full p-3 z-50"
+                        className="absolute left-4 md:left-8 text-white/60 hover:text-brand-red transition-colors bg-black/50 rounded-full p-3 z-50"
                         onClick={goPrev}
                     >
                         <ChevronLeft className="w-8 h-8" />
@@ -650,7 +650,7 @@ export default function Photography() {
 
                     {/* Next */}
                     <button
-                        className="absolute right-4 md:right-8 text-white/60 hover:text-brand-gold transition-colors bg-black/50 rounded-full p-3 z-50"
+                        className="absolute right-4 md:right-8 text-white/60 hover:text-brand-red transition-colors bg-black/50 rounded-full p-3 z-50"
                         onClick={goNext}
                     >
                         <ChevronRight className="w-8 h-8" />

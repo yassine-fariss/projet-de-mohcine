@@ -11,21 +11,21 @@ export default function Services() {
             id: 'videography',
             title: t('services.videography.title'),
             desc: t('services.videography.desc'),
-            icon: <Video className="w-8 h-8 text-brand-gold" />,
+            icon: <Video className="w-8 h-8 text-brand-red" />,
             image: '/service_videography.png',
         },
         {
             id: 'photography',
             title: t('services.photography.title'),
             desc: t('services.photography.desc'),
-            icon: <Camera className="w-8 h-8 text-brand-gold" />,
+            icon: <Camera className="w-8 h-8 text-brand-red" />,
             image: '/service_photography_revo_studio.png',
         },
         {
             id: 'montage',
             title: t('services.montage.title'),
             desc: t('services.montage.desc'),
-            icon: <Scissors className="w-8 h-8 text-brand-gold" />,
+            icon: <Scissors className="w-8 h-8 text-brand-red" />,
             image: '/service_montage_reels.png',
         }
     ];
@@ -58,11 +58,11 @@ export default function Services() {
                             {/* Image side */}
                             <div className="w-full md:w-1/2">
                                 <div className="relative group overflow-hidden">
-                                    {/* Outer gold border frame (decorative, offset) */}
-                                    <div className="absolute -inset-2 border border-brand-gold/20 z-0 pointer-events-none" />
+                                    {/* Outer red border frame (decorative, offset) */}
+                                    <div className="absolute -inset-2 border border-brand-red/20 z-0 pointer-events-none" />
 
                                     {/* Image */}
-                                    <div className="relative overflow-hidden border border-white/10 group-hover:border-brand-gold/50 transition-colors duration-500">
+                                    <div className="relative overflow-hidden border border-white/10 group-hover:border-brand-red/50 transition-colors duration-500">
                                         <img
                                             src={service.image}
                                             alt={service.title}
@@ -74,13 +74,13 @@ export default function Services() {
 
                                         {/* Icon badge bottom-left */}
                                         <div className="absolute bottom-5 left-5 flex items-center gap-3 z-10">
-                                            <div className="w-10 h-10 rounded-full bg-black/70 border border-brand-gold/60 backdrop-blur-sm flex items-center justify-center">
+                                            <div className="w-10 h-10 rounded-full bg-black/70 border border-brand-red/60 backdrop-blur-sm flex items-center justify-center">
                                                 {service.icon}
                                             </div>
                                         </div>
 
-                                        {/* Gold bottom line */}
-                                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        {/* Red bottom line */}
+                                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-red to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ export default function Services() {
                             {/* Text side */}
                             <div className="w-full md:w-1/2 space-y-6">
                                 <div className="flex items-center space-x-4">
-                                    <span className="text-brand-gold font-mono text-xl opacity-50">0{index + 1}</span>
+                                    <span className="text-brand-red font-mono text-xl opacity-50">0{index + 1}</span>
                                     <div className="h-px bg-white/20 w-12" />
                                 </div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white">{service.title}</h2>

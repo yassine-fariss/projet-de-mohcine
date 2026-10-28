@@ -29,7 +29,12 @@
 }
 
 @theme {
-  --color-brand-gold: #C6A75E;
+  /* Brand accent — sampled from the red dot in the Revo Productions logo (#ED1C24).
+     Red replaces the previous gold accent; the primary black/white palette is unchanged. */
+  --color-brand-red: #ED1C24;
+  --color-brand-red-dark: #C4111A;
+  --color-brand-red-light: #FF5A60;
+
   --color-brand-black: var(--bg-primary);
   --color-brand-white: var(--text-primary);
 
@@ -77,7 +82,7 @@ h6 {
 }
 
 .luxury-text-glow {
-  text-shadow: 0 0 20px rgba(198, 167, 94, 0.3);
+  text-shadow: 0 0 20px rgba(237, 28, 36, 0.3);
 }
 
 .luxury-text-glow-white {
