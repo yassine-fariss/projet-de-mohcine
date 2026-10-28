@@ -27,10 +27,10 @@ const teamData = (t: any) => [
         instagram: 'https://www.instagram.com/ghaziabdessamad?igsh=eTJxMjZ0NHd1cGUy',
     },
     {
-        name: 'Othmane Haddach',
+        name: 'Omar Khadiri',
         role: t('role.editor'),
-        image: '/teams/othamne.jpeg',
-        instagram: 'https://www.instagram.com/oth_2.1?igsh=bGhsaXg3OGxoamZu',
+        image: '/teams/omar khadiri.jpg',
+        instagram: null,
     },
     {
         name: 'Soukaina Laanaya',
@@ -340,7 +340,7 @@ export default function Home() {
                         {team.map((member, index) => (
                             <AnimatedSection key={index} delay={0.1 * index}>
                                 <a
-                                    href={member.instagram}
+                                    href={member.instagram ?? undefined}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group relative block overflow-hidden bg-neutral-900 aspect-[3/4] cursor-pointer"
