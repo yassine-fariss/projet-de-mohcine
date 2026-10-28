@@ -1,0 +1,26 @@
+{
+  "name": "Revo Productions",
+  "short_name": "REVO",
+  "description": "Agence de production audiovisuelle à Casablanca, Maroc. Vidéo d'entreprise, photographie, montage et création de contenu.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0A0909",
+  "theme_color": "#0A0909",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
